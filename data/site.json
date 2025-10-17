@@ -1,0 +1,69 @@
+{
+    "name": "Funpay",
+    "logo": {
+        "width": 187,
+        "height": 31
+    },
+    "pages": [
+        {
+            "name": "Главная",
+            "link": "home.html",
+            "status": "",
+            "disabled": false
+        },
+        {
+            "name": "Главная. Eng",
+            "link": "home-eng.html",
+            "status": "",
+            "disabled": false
+        },
+        {
+            "name": "Главная. Ua",
+            "link": "home-ua.html",
+            "status": "",
+            "disabled": false
+        },
+        {
+            "name": "Финал",
+            "link": "finish.html",
+            "status": "",
+            "disabled": false
+        },
+        {
+            "name": "Финал. Eng",
+            "link": "finish-eng.html",
+            "status": "",
+            "disabled": false
+        },
+        {
+            "name": "Финал. Ua",
+            "link": "finish-ua.html",
+            "status": "",
+            "disabled": false
+        },
+        {
+            "name": "Финал. Победитель",
+            "link": "finish-winner.html",
+            "status": "",
+            "disabled": false
+        },
+        {
+            "name": "Финал. Победитель. Eng",
+            "link": "finish-winner-eng.html",
+            "status": "",
+            "disabled": false
+        },
+        {
+            "name": "Финал. Победитель. Ua",
+            "link": "finish-winner-ua.html",
+            "status": "",
+            "disabled": false
+        },
+        {
+            "name": "Главная с шапкой и футером",
+            "link": "with-header-footer.html",
+            "status": "",
+            "disabled": false
+        }
+    ]
+}

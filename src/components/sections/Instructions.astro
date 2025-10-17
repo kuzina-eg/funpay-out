@@ -1,0 +1,77 @@
+---
+import Button from '@components/modules/Button.astro';
+import Picture from '@components/modules/Picture.astro';
+
+interface Props {
+    items?: Array<string>;
+    title?: string;
+    buttonText?: string;
+    class?: string;
+    [x: string]: any;
+}
+
+const {
+    items = [],
+    title,
+    buttonText,
+    class: className,
+    ...rest
+} = Astro.props;
+
+---
+
+<section
+    class:list={[
+        className,
+        'out-instructions out-section',
+    ]}
+    {...rest}
+>
+    <div class="out-instructions__photo-left">
+        <Picture
+            class="out-instructions__image"
+            name="left"
+            directory="img/out/instructions/"
+            type="png"
+            imageWidth="590"
+            imageHeight="546"
+            sourceMobile='<source type="image/webp" srcset="img/out/instructions/left@1x.webp 2x" media="(max-width: 767px)">'
+        ></Picture>
+    </div>
+    <div class="out-instructions__photo-right">
+        <Picture
+            class="out-instructions__image"
+            name="right"
+            directory="img/out/instructions/"
+            type="png"
+            imageWidth="864"
+            imageHeight="561"
+            sourceMobile='<source type="image/webp" srcset="img/out/instructions/right@1x.webp 2x" media="(max-width: 767px)">'
+        ></Picture>
+    </div>
+
+    <div class="out-instructions__box">
+        <h2 class="out-instructions__title out-section__title">{title}</h2>
+        <div class="out-instructions__list">
+            {items.map((item) => (
+                <div class="out-instructions__item">
+                    <div class="out-instructions__item-title" set:html={item.title}></div>
+                    <div class="out-instructions__item-text" set:html={item.text}></div>
+                </div>
+            ))}
+        </div>
+        <Button class="out-instructions__button" type="submit" href="#" center="true" size="lg">{buttonText}</Button>
+    </div>
+
+    <div class="out-instructions__photo-center">
+        <Picture
+            class="out-instructions__image"
+            name="center"
+            directory="img/out/instructions/"
+            type="png"
+            imageWidth="524"
+            imageHeight="504"
+            forMobile={false}
+        ></Picture>
+    </div>
+</section>

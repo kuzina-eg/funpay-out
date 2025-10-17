@@ -1,0 +1,62 @@
+@use "@styles/mixins" as *;
+
+.u-text-accent {
+    color: $color-accent !important;
+}
+
+/* ------- utilites ------- */
+.u-hidden {
+    display: none !important;
+}
+
+.u-hidden-desktop {
+    @include media-min(pc) {
+        display: none !important;
+    }
+}
+
+.u-hidden-tablet {
+    @include media-between(mob, tab-l) {
+        display: none !important;
+    }
+}
+
+.u-hidden-mobile {
+    @include media(mob) {
+        display: none !important;
+    }
+}
+
+.u-hidden-mobile-md {
+    @include media(mob-md) {
+        display: none !important;
+    }
+}
+
+.u-visible-desktop {
+    @include media(pc) {
+        display: none !important;
+    }
+}
+
+.u-visible-tablet {
+    @include media(tab) {
+        display: none !important;
+    }
+
+    @include media-min(pc) {
+        display: none !important;
+    }
+}
+
+.u-visible-mobile {
+    @include media-min(mob) {
+        display: none !important;
+    }
+}
+
+.u-visible-mobile-md {
+    @include media-min(mob-md) {
+        display: none !important;
+    }
+}

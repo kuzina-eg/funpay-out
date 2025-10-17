@@ -1,0 +1,67 @@
+---
+import Button from '@components/modules/Button.astro';
+import Picture from '@components/modules/Picture.astro';
+
+interface Props {
+    title?: string;
+    buttonText?: string;
+    class?: string;
+    [x: string]: any;
+}
+
+const {
+    title,
+    buttonText,
+    class: className,
+    ...rest
+} = Astro.props;
+
+---
+
+<section
+    class:list={[
+        className,
+        'out-finish-footer out-section',
+    ]}
+    {...rest}
+>
+    <div class="out-finish-footer__box">
+        <div class="out-finish-footer__content">
+            <h2 class="out-finish-footer__title out-section__title" set:html={title}></h2>
+            <Button size="lg" style="second" class="out-finish-footer__button">{buttonText}</Button>
+        </div>
+        <div class="out-finish-footer__left">
+            <Picture
+                class="out-finish-footer__left-image"
+                name="left"
+                directory="img/out/footer/"
+                type="jpg"
+                imageWidth="338"
+                imageHeight="347"
+                forMobile={false}
+            ></Picture>
+        </div>
+        <div class="out-finish-footer__right">
+            <Picture
+                class="out-finish-footer__right-image"
+                name="right"
+                directory="img/out/footer/"
+                type="jpg"
+                imageWidth="279"
+                imageHeight="235"
+                forMobile={false}
+            ></Picture>
+        </div>
+        <div class="out-finish-footer__center">
+            <Picture
+                class="out-finish-footer__center-image"
+                name="center"
+                directory="img/out/footer/"
+                type="jpg"
+                imageWidth="328"
+                imageHeight="246"
+                forMobile={false}
+            ></Picture>
+        </div>
+    </div>
+</section>

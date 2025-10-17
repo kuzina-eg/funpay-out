@@ -1,0 +1,74 @@
+@use "@styles/mixins" as *;
+
+.out-participants {
+    display: grid;
+    grid-template-columns: 100%;
+    gap: 24px;
+
+    &__title {
+        text-align: left;
+    }
+
+    &__list {
+        display: grid;
+        grid-template-columns: 100%;
+        gap: 6px;
+
+        @include media-min(mob-md) {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        @include media-min(tab) {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+    }
+
+    &__item {
+        background-color: $color-white;
+        padding: 10px;
+        border-radius: 16px;
+        display: flex;
+        gap: 15px;
+        align-items: center;
+        font-family: $onest-font-family;
+    }
+
+    &__item-photo {
+        width: 46px;
+        flex: 0 0 auto;
+    }
+
+    &__item-image {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        border-radius: 46px;
+    }
+
+    &__item-detail {
+        width: 100%;
+        overflow: hidden;
+        display: grid;
+        gap: 3px;
+        grid-template-columns: 100%;
+    }
+
+    &__item-name {
+        width: 100%;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 1.4;
+        letter-spacing: -.02em;
+    }
+
+    &__item-status {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 1.4;
+        color: #919191;
+    }
+}

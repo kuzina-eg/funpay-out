@@ -1,0 +1,76 @@
+@use "@styles/mixins" as *;
+
+.item-already-prize {
+    background-color: #2552E4;
+    padding: $space-sm;
+    border-radius: 12px;
+    display: grid;
+    //align-items: center;
+    gap: 8px 5px;
+    grid-template-columns: 82px 1fr;
+    color: $color-white;
+
+    @include media-min(tab) {
+        gap: 4px;
+    }
+
+    &__photo {
+        width: 100%;
+        height: 44px;
+        padding: 2px;
+        background-color: #698CFD;
+        border-radius: $radius-sm;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        @include media-min(tab) {
+            height: 40px;
+            padding: 1px;
+        }
+    }
+
+    picture {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__image {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    &__detail {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        align-self: center;
+    }
+
+    &__title {
+        @include media-min(tab) {
+            font-size: 22px;
+        }
+    }
+
+    &__text {
+        grid-column: span 2;
+        line-height: 1.3;
+
+        @include media-min(tab) {
+            font-size: 10px;
+            line-height: 1.5;
+        }
+    }
+
+    &__discount {
+        @include media-min(tab) {
+            font-size: 8px;
+            line-height: 1.25;
+        }
+    }
+}

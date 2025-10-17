@@ -1,0 +1,98 @@
+// Mixins
+@use "@styles/mixins" as *;
+
+// Font sizes
+
+:root {
+    --text-size-xs: 10px;
+    --text-size-sm: 12px;
+    --text-size: 14px;
+    --text-size-md: 16px;
+    --text-size-md-all: 16px;
+    --text-size-lg: 18px;
+    --text-size-xl: 20px;
+
+    --title-size-xs: 20px;
+    --title-size-sm: 24px;
+    --title-size: 24px;
+    --title-size-md: 36px;
+    --title-size-lg: 44px;
+
+    @include media-min(mob) {
+        //--title-size-xs: 1.25rem; // 20px
+        //--title-size-sm: 1.5rem; // 24px
+        --title-size: 30px;
+        //--title-size-md: 2.25rem; // 36px
+        //--title-size-lg: 2.75rem; // 44px
+    }
+}
+
+
+// Colors
+
+:root {
+    --color-base: #151515;
+    --color-base-rgb: 21,21,21;
+    --color-accent: #255FE4; //+
+    --color-accent-rgb: 37,95,228;
+    --color-accent-hover: #0E47CB;
+    --color-second: #E9EFFC; //+
+    --color-second-hover: #DBE4F9;
+    --color-white: #FFFFFF; //+
+    --color-white-rgb: 255,255,255; //+
+    --color-black: #07122E; //+
+    --color-grey-dark: #364157; //+
+    --color-grey: #666E81; //+
+    --color-grey-light: #959CAA; //+
+    --color-disabled: #E0E2E6;
+
+    --background-backdrop: rgba(0,0,0,.8);
+}
+
+
+// Base Settings
+
+:root {
+    --base-background: #E9EFFC;
+    --base-background-rgb: 245,246,251;
+    --base-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --custom-font-family: "Refrigerator Deluxe", sans-serif;
+    --title-font-family: "Graphik Semibold","Helvetica Neue",Helvetica,Arial,sans-serif;
+    --onest-font-family: 'Onest', sans-serif;
+
+    --base-font-weight: 400;
+    --base-line-height: 1.5;
+    --container-max-width: 1408px;
+    --content-width: 745px;
+    --gutters: 10px;
+    --space-sm: 10px; //+
+    --space: 20px;
+    --space-md: 24px;
+    --space-lg: 32px;
+    --space-section: 40px;
+    --duration: .3s;
+
+    @include media-min(mob) {
+        --gutters: 15px;
+        --space-section: 52px;
+    }
+}
+
+
+// Sizes
+
+:root {
+    --icon-size: 24px;
+    --radius-xs: 8px;
+    --radius-sm: 10px; //+
+    --radius: 16px;
+    --radius-md: 20px;
+    --radius-lg: 24px; //+
+
+    --button-height: 44px;
+    --button-height-lg: 56px; //+
+
+    @include media(mob) {
+        --button-height-lg: 44px;
+    }
+}

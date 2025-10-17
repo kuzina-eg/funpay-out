@@ -1,0 +1,47 @@
+---
+import Button from '@components/modules/Button.astro';
+
+interface Props {
+    items?: Array<string>;
+    title?: string;
+    class?: string;
+    [x: string]: any;
+}
+
+const {
+    items = [],
+    title,
+    class: className,
+    ...rest
+} = Astro.props;
+
+---
+
+<section
+    class:list={[
+        className,
+        'out-participants out-section',
+    ]}
+    {...rest}
+>
+    <h2 class="out-participants__title out-section__title">{title}</h2>
+    <div class="out-participants__list">
+        {items.map((item) => (
+            <div class="out-participants__item">
+                <div class="out-participants__item-photo">
+                    <img
+                        src=`img/out/participants/${item.image}.png`
+                        class="out-participants__item-image"
+                        width="46"
+                        height="46"
+                        alt=""
+                    >
+                </div>
+                <div class="out-participants__item-detail">
+                    <div class="out-participants__item-name" set:html={item.name}></div>
+                    <div class="out-participants__item-status" set:html={item.status}></div>
+                </div>
+            </div>
+        ))}
+    </div>
+</section>

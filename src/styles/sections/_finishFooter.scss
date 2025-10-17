@@ -1,0 +1,109 @@
+@use "@styles/mixins" as *;
+
+.out-finish-footer {
+    @include media-min(pc) {
+        padding-top: 56px;
+    }
+
+    &__box {
+        background-color: #0077FF;
+        border-radius: 24px;
+        padding: 30px 18px 10px;
+        position: relative;
+        color: $color-white;
+
+        @include media-min(mob-md) {
+            //padding-bottom: 20px;
+        }
+
+        @include media-min(tab) {
+            padding: 32px;
+        }
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 24px;
+
+        @include media-min(tab) {
+            width: 420px;
+            margin-left: auto;
+            margin-right: auto;
+            gap: 26px;
+        }
+    }
+
+    &__title {
+        font-size: 21px;
+        line-height: 1.1;
+
+        @include media-min(tab) {
+            font-size: 42px;
+            letter-spacing: -.02em;
+        }
+    }
+
+    &__left,
+    &__right {
+        display: none;
+
+        @include media-min(tab) {
+            display: block;
+            position: absolute;
+        }
+    }
+
+    &__left {
+        left: 2.28%;
+        top: 50%;
+        transform: translateY(-56%);
+        width: 29.649%;
+    }
+
+    &__left-image {
+        width: 100%;
+        height: auto;
+    }
+
+    &__right {
+        right: 4%;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 24.47%;
+    }
+
+    &__right-image {
+        width: 100%;
+        height: auto;
+    }
+
+    &__center {
+        margin-top: 32px;
+        margin-left: -20px;
+        margin-right: -20px;
+        display: flex;
+        justify-content: center;
+
+        @include media-min(mob-md) {
+            margin-top: 24px;
+        }
+
+        @include media-min(tab) {
+            display: none;
+        }
+    }
+
+    &__center-image {
+        height: auto;
+        width: 380px;
+    }
+
+    &__button {
+        width: 100%;
+        max-width: 283px;
+        height: 56px;
+    }
+}

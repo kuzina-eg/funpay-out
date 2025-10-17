@@ -1,0 +1,105 @@
+@use "@styles/mixins" as *;
+
+.out {
+    padding-top: $space;
+    padding-bottom: $space;
+    background-color: $base-background;
+    border-top: #e4e4e4 1px solid;
+    border-bottom: #e4e4e4 1px solid;
+    margin-top: -1px;
+    margin-bottom: -1px;
+    overflow: hidden;
+    font-family: $base-font-family;
+    font-weight: $base-font-weight;
+    font-size: $text-size;
+    line-height: $base-line-height;
+    color: $color-base;
+
+    p {
+        margin: 0 0 1.5em;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    a {
+        transition: $duration ease;
+
+        &:hover,
+        &:focus {
+            text-decoration: none;
+        }
+    }
+
+    button:not(.ui-button) {
+        appearance: none;
+        border: none;
+        padding: 0;
+        box-shadow: none;
+        font-family: inherit;
+        font-size: inherit;
+        color: $color-base;
+        background-color: transparent;
+        cursor: pointer;
+        user-select: none;
+    }
+
+    //img {
+    //    max-width: 100%;
+    //    height: auto;
+    //    vertical-align: middle;
+    //}
+
+    a, button {
+        &:focus-visible {
+            outline: 2px solid $color-accent;
+            outline-offset: 3px;
+        }
+    }
+
+    ::selection {
+        background: $color-accent;
+        color: $color-white;
+    }
+}
+
+.out-section {
+    padding-top: calc($space-section * .5);
+    padding-bottom: calc($space-section * .5);
+
+    &__title {
+        margin: 0;
+        text-align: center;
+        font-size: $title-size;
+        line-height: 1.1;
+        font-weight: 700;
+        font-family: $title-font-family;
+
+        @include media-min(mob-md) {
+        }
+
+        @include media-min(mob) {
+        }
+    }
+}
+
+.discount-prize {
+    display: flex;
+    width: fit-content;
+    padding: 3px 6px;
+    background-color: #F83B1B;
+    border-radius: 5px;
+    font-size: 10px;
+    line-height: 1.5;
+    color: $color-white;
+}
+
+.title-prize {
+    font-family: $custom-font-family;
+    font-weight: 700;
+    font-size: 21px;
+    line-height: .9;
+    letter-spacing: -.02em;
+    text-transform: uppercase;
+}

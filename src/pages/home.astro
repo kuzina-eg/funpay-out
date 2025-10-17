@@ -1,0 +1,122 @@
+---
+import Layout from '@layouts/Layout.astro';
+import Picture from '@components/modules/Picture.astro';
+
+import Promo from '@components/sections/Promo.astro';
+import Already from '@components/sections/Already.astro';
+import Instructions from '@components/sections/Instructions.astro';
+
+const prizes = [
+    {
+        title: 'Царь-пекарня',
+        count: '1 шт.',
+        image: 'pc',
+        param: 'RTX 5090 + 9800X3D',
+        text: 'Ультимативная сборка с&nbsp;топовой видеокартой. Потянет Героев, любую Готику и&nbsp;даже Скайрим, обмазанный модами.',
+        note: '*Внешний вид приза может отличаться от&nbsp;его изображения в&nbsp;рекламных материалах.',
+    },
+]
+
+const myTickets = [
+    {
+        orderNumber: '#4332-4852',
+        tickets: '<span class="text-nowrap">№648-221</span>, <span class="text-nowrap">№263-399</span>, <span class="text-nowrap">№359-452</span>',
+    },
+]
+
+const alreadyPrizes = [
+    {
+        image: 'xl',
+        prizeValue: 8100,
+        discount: 50,
+        text: 'Получили > 10&nbsp;чел.',
+    },
+    {
+        image: 'md',
+        prizeValue: 8100,
+        discount: 50,
+        text: 'Получили > 10&nbsp;чел.',
+    },
+    {
+        image: 'sm',
+        prizeValue: 365,
+        discount: 80,
+        text: 'Получили > 10&nbsp;чел.',
+    },
+]
+
+const alreadyWinners = [
+    {
+        image: 'lg',
+        prizeValue: 1800,
+        discount: 80,
+        name: 'Имя пользователя',
+        date: '20 минут назад',
+    },
+    {
+        image: 'lg',
+        prizeValue: 2000,
+        discount: 80,
+        name: 'Имя пользователя',
+        date: '20 минут назад',
+    },
+    {
+        image: 'md',
+        prizeValue: 1800,
+        discount: 80,
+        name: 'Имя пользователя',
+        date: '20 минут назад',
+    },
+    {
+        image: 'lg',
+        prizeValue: 1800,
+        discount: 50,
+        name: 'Имя пользователя',
+        date: '20 минут назад',
+    },
+]
+
+const instruction = [
+    {
+        title: 'Войдите в&nbsp;аккаунт',
+        text: 'С&nbsp;17&nbsp;сентября по&nbsp;1&nbsp;октября собирайте скидки на&nbsp;UC могут только пользователи FunPay.',
+    },
+    {
+        title: 'Запустите барабан',
+        text: 'Нажмите &laquo;Мне повезёт&raquo; и&nbsp;выбейте себе скидку. Система выберет её&nbsp;случайным образом, автоматически. Возвращайтесь за&nbsp;новой скидкой через 24&nbsp;часа.',
+    },
+    {
+        title: 'Получите приз',
+        text: 'Заберите свою скидку из&nbsp;профиля. Она появится в&nbsp;нём сразу после получения. И&nbsp;будет активна в&nbsp;течение всей акции и&nbsp;ещё 3&nbsp;дня после её&nbsp;окончания.',
+    },
+    {
+        title: 'Купите UC&nbsp;со&nbsp;скидкой',
+        text: 'Пак&nbsp;UC, на&nbsp;который действует выбитая скидка, указан на&nbsp;самом билете. Нажмите &laquo;Использовать&raquo;, получите&nbsp;UC и&nbsp;возвращайтесь за&nbsp;новым призом через 24&nbsp;часа.',
+    },
+]
+
+---
+<Layout title="Out">
+    <div class="container">
+        <Promo
+            title="Забирайте скидки<br> до&nbsp;90% На&nbsp;UC"
+            text="Подарки для новых пользователей:<br> присоединяйся и&nbsp;выбивай скидки"
+            buttonText="Участвую!"
+            rulesLink="Правила участия"
+        ></Promo>
+        <Already
+            title="Выдали и продолжаем выдавать"
+            resultTitle="Выбито призов"
+            resultText="Крутые скидки на&nbsp;UC ещё остались. Присоединяйтесь и&nbsp;забирайте свою!"
+            resultValue="00 000 001"
+            prizes={alreadyPrizes}
+            items={alreadyWinners}
+            unit="шт."
+        ></Already>
+        <Instructions
+            title="Как участвовать?"
+            items={instruction}
+            buttonText="Погнали!"
+        ></Instructions>
+    </div>
+</Layout>

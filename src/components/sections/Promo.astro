@@ -1,0 +1,65 @@
+---
+import Button from '@components/modules/Button.astro';
+import Picture from '@components/modules/Picture.astro';
+
+interface Props {
+    title?: string;
+    text?: string;
+    buttonText?: string;
+    rulesLink?: string;
+}
+
+const {
+    title,
+    text,
+    buttonText,
+    rulesLink,
+    class: className,
+    ...rest
+} = Astro.props;
+
+---
+
+<section
+    class:list={[
+        className,
+        'out-promo',
+    ]}
+    {...rest}
+>
+    <div class="out-promo__box">
+        <div class="out-promo__bg">
+            <Picture
+                class="out-promo__bg-image"
+                name="bg"
+                directory="img/out/promo/"
+                type="jpg"
+                imageWidth="1140"
+                imageHeight="483"
+                forMobile={false}
+            ></Picture>
+        </div>
+
+        <div class="out-promo__row">
+            <div class="out-promo__photo">
+                <Picture
+                    class="out-promo__image"
+                    name="promo2"
+                    directory="img/out/promo/"
+                    type="png"
+                    imageWidth="607"
+                    imageHeight="496"
+                    forMobile={false}
+                ></Picture>
+            </div>
+            <div class="out-promo__detail">
+                <h1 class="out-promo__title" set:html={title}></h1>
+                <div class="out-promo__descr" set:html={text}></div>
+                <div class="out-promo__button">
+                    <Button type="link" href="#" style="second" center="true" size="lg">{buttonText}</Button>
+                    { rulesLink ? <Button type="link" style="link" href="#" center="true">{rulesLink}</Button> : '' }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

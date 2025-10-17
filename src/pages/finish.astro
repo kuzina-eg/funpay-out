@@ -1,0 +1,132 @@
+---
+import Layout from '@layouts/Layout.astro';
+import Picture from '@components/modules/Picture.astro';
+
+import Promo from '@components/sections/Promo.astro';
+import Already from '@components/sections/Already.astro';
+import Participants from '@components/sections/Participants.astro';
+import FinishFooter from '@components/sections/FinishFooter.astro';
+
+const alreadyPrizes = [
+    {
+        image: 'xl',
+        prizeValue: 8100,
+        text: 'Раздали > 300&nbsp;000&nbsp;шт.',
+    },
+    {
+        image: 'md',
+        prizeValue: 8100,
+        text: 'Раздали > 300&nbsp;000&nbsp;шт.',
+    },
+    {
+        image: 'sm',
+        prizeValue: 365,
+        text: 'Раздали > 300&nbsp;000&nbsp;шт.',
+    },
+    {
+        image: 'xl',
+        prizeValue: 8100,
+        text: 'Раздали > 300&nbsp;000&nbsp;шт.',
+    },
+    {
+        image: 'md',
+        prizeValue: 8100,
+        text: 'Раздали > 300&nbsp;000&nbsp;шт.',
+    },
+    {
+        image: 'sm',
+        prizeValue: 365,
+        text: 'Раздали > 300&nbsp;000&nbsp;шт.',
+    },
+]
+
+const alreadyWinners = [
+    {
+        image: 'lg',
+        prizeValue: 1800,
+        discount: 80,
+        name: 'Имя пользователя',
+        date: '20 минут назад',
+    },
+    {
+        image: 'lg',
+        prizeValue: 2000,
+        discount: 80,
+        name: 'Имя пользователя',
+        date: '20 минут назад',
+    },
+    {
+        image: 'md',
+        prizeValue: 1800,
+        discount: 80,
+        name: 'Имя пользователя',
+        date: '20 минут назад',
+    },
+    {
+        image: 'lg',
+        prizeValue: 1800,
+        discount: 50,
+        name: 'Имя пользователя',
+        date: '20 минут назад',
+    },
+]
+
+const participants = [
+    {
+        name: 'Имя пользователя',
+        status: 'Получил более 23 призов',
+        image: '01',
+    },
+    {
+        name: 'Имя пользователя',
+        status: 'Получил более 23 призов',
+        image: '02',
+    },
+    {
+        name: 'Имя пользователяпользователяпользователяпользователяпользователя',
+        status: 'Получил более 23 призов',
+        image: '01',
+    },
+    {
+        name: 'Имя пользователя',
+        status: 'Получил более 23 призов',
+        image: '02',
+    },
+    {
+        name: 'Имя пользователя',
+        status: 'Получил более 23 призов',
+        image: '01',
+    },
+    {
+        name: 'Имя пользователя',
+        status: 'Получил более 23 призов',
+        image: '02',
+    },
+]
+
+---
+<Layout title="Out">
+    <div class="container">
+        <Promo
+            title="Акция завершена&nbsp;&mdash; спасибо за&nbsp;участие!"
+            text="Участники выбили более 10&nbsp;000&nbsp;скидок.<br> Новый розыгрыш&nbsp;&mdash; совсем скоро"
+            buttonText="Подписаться на новости"
+        ></Promo>
+        <Already
+            title="Сколько скидок раздали<br> с&nbsp;<strong>17</strong>&nbsp;сентября по&nbsp;<strong>17</strong>&nbsp;октября"
+            resultTitle="Сколько участников получили классные скидки на&nbsp;UC"
+            resultValue="1 234 301"
+            prizes={alreadyPrizes}
+            unit="чел."
+            isFinish={true}
+        ></Already>
+        <Participants
+            title="Топовые участники"
+            items={participants}
+        ></Participants>
+        <FinishFooter
+            title="Новый розыгрыш<br> совсем скоро!"
+            buttonText="Подписаться на розыгрыши"
+        ></FinishFooter>
+    </div>
+</Layout>

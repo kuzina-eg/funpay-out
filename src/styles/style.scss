@@ -1,0 +1,30 @@
+// Variables
+@use "vars";
+
+// Vendor
+//@use "vendor";
+
+// Base
+@use "./common/base";
+@use "./common/utilites";
+
+// Plugins
+@use "./plugins/fancybox";
+
+// Modules
+@use "./modules/button";
+
+// Site blocks
+@use "./blocks/accordion";
+@use "./blocks/alreadyPrizeItem";
+@use "./blocks/alreadyWinnerItem";
+@use "./blocks/instructionItem";
+
+// Site sections
+@use "./sections/promo";
+@use "./sections/already";
+@use "./sections/instructions";
+@use "./sections/participants";
+@use "./sections/finishFooter";
+
+

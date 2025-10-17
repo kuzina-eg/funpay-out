@@ -1,0 +1,150 @@
+---
+import Button from '@components/modules/Button.astro';
+import Picture from '@components/modules/Picture.astro';
+
+interface Props {
+    title?: string;
+    resultTitle?: string;
+    resultText?: string;
+    resultValue?: string;
+    items?: Array<string>;
+    prizes?: Array<string>;
+    isFinish?: Boolean;
+    unit?: string;
+    class?: string;
+    [x: string]: any;
+}
+
+const {
+    title,
+    resultTitle,
+    resultText,
+    resultValue,
+    items = [],
+    prizes = [],
+    isFinish = false,
+    unit,
+    class: className,
+    ...rest
+} = Astro.props;
+
+---
+
+<section
+    class:list={[
+        className,
+        isFinish ? 'out-already--finish' : '',
+        'out-already out-section',
+    ]}
+    {...rest}
+>
+    <div
+        class:list={[
+            'out-already__box'
+        ]}
+    >
+        { isFinish ?
+            <div class="out-already__row">
+                <div class="out-already__main">
+                    <h2 class="out-already__title-mini" set:html={title}></h2>
+                    <div class="out-already__count">10 000 000</div>
+                </div>
+                <div class="out-already__sidebar">
+                    <Picture
+                        class="out-already__sidebar-image"
+                        name="box"
+                        directory="img/out/already/"
+                        type="png"
+                        imageWidth="182"
+                        imageHeight="214"
+                        forMobile={false}
+                    ></Picture>
+                </div>
+            </div>
+            :
+            <h2 class="out-already__title out-section__title" set:html={title}></h2>
+        }
+
+        <div class="out-already__prizes l-column-2">
+            {prizes.map((item) => (
+                <div class="item-already-prize">
+                    <div class="item-already-prize__photo">
+                        <Picture
+                            class="item-already-prize__image"
+                            name={item.image}
+                            directory="img/out/prizes/"
+                            type="png"
+                            imageWidth="57"
+                            imageHeight="38"
+                            forMobile={false}
+                        ></Picture>
+                    </div>
+                    <div class="item-already-prize__detail">
+                        { item.discount ? <div class="item-already-prize__discount discount-prize">{item.discount}%</div> : '' }
+                        <div class="item-already-prize__title title-prize">{item.prizeValue} uc</div>
+                    </div>
+                    <div class="item-already-prize__text" set:html={item.text}></div>
+                </div>
+            ))}
+        </div>
+        { items && items.length ?
+            <div class="out-already__divider"></div>
+            <div class="out-already__winners">
+                {items.map((item) => (
+                    <div class="item-already-winner">
+                        <div class="item-already-winner__photo">
+                            <div class="item-already-winner__prize-photo">
+                                <Picture
+                                    class="item-already-winner__prize-image"
+                                    name={item.image}
+                                    directory="img/out/prizes/"
+                                    type="png"
+                                    imageWidth="60"
+                                    imageHeight="40"
+                                    forMobile={false}
+                                ></Picture>
+                            </div>
+                            <div class="item-already-winner__prize-value title-prize">{item.prizeValue} uc</div>
+                            <div class="item-already-winner__prize-discount discount-prize">{item.discount}%</div>
+                        </div>
+                        <div class="item-already-winner__detail">
+                            <div class="item-already-winner__name" set:html={item.name}></div>
+                            <div class="item-already-winner__date" set:html={item.date}></div>
+                        </div>
+                    </div>
+                ))}
+            </div>
+            :
+            ''
+        }
+    </div>
+
+    <div class="out-already__result">
+        <div class="out-already__photo">
+            { isFinish ?
+                <Picture
+                    class="out-already__image"
+                    name="finish"
+                    directory="img/out/already/"
+                    type="png"
+                    imageWidth="392"
+                    imageHeight="353"
+                    forMobile={false}
+                ></Picture>
+                :
+                <Picture
+                    class="out-already__image"
+                    name="already"
+                    directory="img/out/already/"
+                    type="png"
+                    imageWidth="392"
+                    imageHeight="353"
+                    forMobile={false}
+                ></Picture>
+            }
+        </div>
+        <div class="out-already__result-title" set:html={resultTitle}></div>
+        { resultText ? <div class="out-already__result-text" set:html={resultText}></div> : '' }
+        <div class="out-already__result-value"><strong>{resultValue}</strong> {unit}</div>
+    </div>
+</section>
