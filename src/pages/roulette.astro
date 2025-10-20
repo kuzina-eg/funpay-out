@@ -1,0 +1,70 @@
+---
+import Layout from '@layouts/Layout.astro';
+import Picture from '@components/modules/Picture.astro';
+
+import Roulette from '@components/sections/Roulette.astro';
+
+const items = [
+    {
+        class: 'slice1 purple',
+        value: '6',
+        discount: '90',
+        image: 'sm',
+    },
+    {
+        class: 'slice2',
+        value: '120',
+        discount: '50',
+        image: 'md',
+    },
+    {
+        class: 'slice3 purple',
+        value: '60',
+        discount: '80',
+        image: 'lg',
+    },
+    {
+        class: 'slice4',
+        value: '1800',
+        discount: '80',
+        image: 'lg',
+    },
+    {
+        class: 'slice5 purple',
+        value: '8100',
+        discount: '80',
+        image: 'xl',
+    },
+    {
+        class: 'slice6',
+        value: '1800',
+        discount: '80',
+        image: 'lg',
+    },
+    {
+        class: 'slice7 purple',
+        value: '365',
+        discount: '80',
+        image: 'lg',
+    },
+    {
+        class: 'slice8',
+        value: '120',
+        discount: '80',
+        image: 'md',
+    },
+]
+
+---
+<Layout title="Out Колесо фортуны">
+    <div class="out__container container">
+        <Roulette
+            items={items}
+            title="Вращайте барабан и&nbsp;забирай свой приз"
+            text="17&nbsp;сентября по&nbsp;1&nbsp;октября<br> выбивайте скидки на&nbsp;UC"
+            discountText="Скидка"
+            buttonText="Мне повезет"
+            linkText="Правила участия"
+        ></Roulette>
+    </div>
+</Layout>

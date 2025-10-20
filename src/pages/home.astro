@@ -6,24 +6,6 @@ import Promo from '@components/sections/Promo.astro';
 import Already from '@components/sections/Already.astro';
 import Instructions from '@components/sections/Instructions.astro';
 
-const prizes = [
-    {
-        title: 'Царь-пекарня',
-        count: '1 шт.',
-        image: 'pc',
-        param: 'RTX 5090 + 9800X3D',
-        text: 'Ультимативная сборка с&nbsp;топовой видеокартой. Потянет Героев, любую Готику и&nbsp;даже Скайрим, обмазанный модами.',
-        note: '*Внешний вид приза может отличаться от&nbsp;его изображения в&nbsp;рекламных материалах.',
-    },
-]
-
-const myTickets = [
-    {
-        orderNumber: '#4332-4852',
-        tickets: '<span class="text-nowrap">№648-221</span>, <span class="text-nowrap">№263-399</span>, <span class="text-nowrap">№359-452</span>',
-    },
-]
-
 const alreadyPrizes = [
     {
         image: 'xl',
@@ -97,7 +79,7 @@ const instruction = [
 
 ---
 <Layout title="Out">
-    <div class="container">
+    <div class="out__container container">
         <Promo
             title="Забирайте скидки<br> до&nbsp;90% На&nbsp;UC"
             text="Подарки для новых пользователей:<br> присоединяйся и&nbsp;выбивай скидки"

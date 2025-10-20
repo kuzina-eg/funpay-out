@@ -72,6 +72,9 @@
     --space-section: 40px;
     --duration: .3s;
 
+    --angleStart: 0deg;
+    --angleEnd: 360deg;
+
     @include media-min(mob) {
         --gutters: 15px;
         --space-section: 52px;

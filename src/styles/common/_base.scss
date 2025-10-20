@@ -14,6 +14,40 @@
     font-size: $text-size;
     line-height: $base-line-height;
     color: $color-base;
+    position: relative;
+
+    &:before,
+    &:after {
+        content: "";
+        display: block;
+        width: 791px;
+        height: 810px;
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(518px);
+
+        @include media(mob) {
+            display: none;
+        }
+    }
+
+    &:before {
+        left: 0;
+        top: 50%;
+        background-color: #DAD4FF;
+        transform: translateY(-50%);
+    }
+
+    &:after {
+        right: 0;
+        bottom: 0;
+        background-color: #D4F5FF;
+    }
+
+    &__container {
+        position: relative;
+        z-index: 10;
+    }
 
     p {
         margin: 0 0 1.5em;
@@ -103,3 +137,4 @@
     letter-spacing: -.02em;
     text-transform: uppercase;
 }
+

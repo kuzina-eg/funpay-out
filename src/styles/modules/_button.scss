@@ -131,6 +131,11 @@
             background-color: $color-second;
             color: $color-accent;
         }
+
+        &:focus {
+            outline-color: transparent;
+            color: $color-accent-hover;
+        }
     }
 
     &--third {
