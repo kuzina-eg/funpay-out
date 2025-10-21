@@ -14,7 +14,7 @@
 	width: fit-content;
 	height: $button-height;
 	font-weight: 500;
-    font-size: $text-size-md-all;
+    font-size: 16px;
 	line-height: 1.25;
 	text-align: center;
 	color: $color-white;
@@ -29,16 +29,6 @@
         svg {
             &:not(.ui-icon--stroke) {
                 fill: currentColor;
-            }
-
-            &.ui-icon-arrow-left-primary,
-            &.ui-icon-arrow-right-primary,
-            &.ui-icon-sort-2 {
-                fill: none;
-                stroke: currentColor;
-                stroke-width: 2;
-                stroke-linecap: round;
-                stroke-linejoin: round;
             }
         }
     }
@@ -68,23 +58,29 @@
         order: -1;
     }
 
-    &__icon-amount {
+    &__amount {
         display: flex;
         align-items: center;
         justify-content: center;
         position: absolute;
-        top: -2px;
-        right: 2px;
-        transform: translateX(50%);
-        background-color: $color-accent;
-        border-radius: 2rem;
+        top: -15px;
+        right: -8px;
+        background-color: #F83B1B;
+        border-radius: 30px;
         padding: 0 3px;
-        min-width: 13px;
+        min-width: 30px;
         text-align: center;
-        line-height: 13px;
-        font-size: 10px;
-        font-weight: 600;
+        line-height: 30px;
+        font-family: $onest-font-family;
+        font-weight: 700;
+        font-size: 14px;
         color: $color-white;
+
+        @include media-min(mob) {
+            top: -8px;
+            right: -5px;
+            font-size: 16px;
+        }
     }
 
 	&--fill {
@@ -103,7 +99,6 @@
     }
 
     &:focus {
-        //outline-color: $color-accent-hover;
         outline-color: transparent;
         color: $color-white;
     }
@@ -135,28 +130,6 @@
         &:focus {
             outline-color: transparent;
             color: $color-accent-hover;
-        }
-    }
-
-    &--third {
-        background-color: rgba(168, 191, 244, 0.3);
-        color: $color-accent;
-
-        &:hover,
-        &:focus-visible {
-            background-color: $color-accent-hover;
-            color: $color-white;
-        }
-    }
-
-    &--light {
-        background-color: $color-grey-light;
-        color: $color-white;
-
-        &:hover,
-        &:focus-visible {
-            background-color: $color-grey;
-            color: $color-white;
         }
     }
 

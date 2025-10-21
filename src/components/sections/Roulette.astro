@@ -6,9 +6,15 @@ interface Props {
     title?: string;
     text?: string;
     discountText?: string;
+    discountOn?: string;
     buttonText?: string;
+    textNextTry?: string;
     linkText?: string;
+    prizeButtonText?: string;
     items?: Array<string>;
+    resultTitle?: string;
+    resultButtonText?: string;
+    textProbability?: string;
     class?: string;
     [x: string]: any;
 }
@@ -17,9 +23,15 @@ const {
     title,
     text,
     discountText,
+    discountOn,
     buttonText,
+    textNextTry,
     linkText,
+    prizeButtonText,
     items = [],
+    resultTitle,
+    resultButtonText,
+    textProbability,
     class: className,
     ...rest
 } = Astro.props;
@@ -40,7 +52,7 @@ const {
     </div>
     <div class="out-roulette__box">
         <div class="out-roulette__wheel-container">
-            <div class="out-roulette__wheel">
+            <div class="out-roulette__wheel-transform">
                 <div class="out-roulette__wheel-rotation a-rotation roulette">
                     {items.map((item, index) => (
                         <div class=`slice ${item.class}` id=`slice${(index+1)}` data-size={item.image} data-value={item.value} data-discount={item.discount}>
@@ -78,15 +90,26 @@ const {
 
         <div class="out-roulette__content">
             <div class="out-roulette__text" set:html={text}></div>
-            <div class="out-roulette__title" set:html={title}></div>
-            <div class="out-roulette__footer">
-                <Button class="out-roulette__button js-start-play" size="lg" center="true" style="second">{buttonText}</Button>
-                <a href="#" class="out-roulette__link">{linkText}</a>
-            </div>
+            <div class="out-roulette__title title-custom" set:html={title}></div>
+        </div>
+        <div class="out-roulette__content-footer out-roulette__footer">
+            <Button class="out-roulette__button js-start-play" size="lg" center="true" style="second" data-next={textNextTry} data-new={buttonText}>{buttonText}</Button>
+            <a href="#" class="out-roulette__link u-hidden-mobile">{linkText}</a>
+        </div>
+
+        <div class="out-roulette__show-prizes">
+            <Button style="second" icon="gift" amount="1">{prizeButtonText}</Button>
         </div>
 
         <div class="out-roulette__modal">
             <div class="out-roulette__modal-animation" id="lottie-animation"></div>
+            <Button style="link" class="out-roulette__modal-close js-close-roulette-modal">
+                <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 56 56" fill="none">
+                    <path d="M12 12L44 44" stroke="white" stroke-width="2.625" stroke-linecap="round"/>
+                    <path d="M44 12L12 44" stroke="white" stroke-width="2.625" stroke-linecap="round"/>
+                </svg>
+            </Button>
+            <div class="out-roulette__modal-title">{resultTitle}</div>
             <div class="out-roulette__modal-photo">
                 <div class="out-roulette__modal-photo-transform">
                     <Picture
@@ -101,21 +124,19 @@ const {
                 </div>
             </div>
 
-            <div class="out-roulette__modal-result">
-                <div>Скидка <span class="result-discount">50</span>%</div>
-                <div>на <span class="result-value">8100</span> UC</div>
+            <div class="out-roulette__modal-result title-custom">
+                <div>{discountText} <span class="result-discount">50</span>%</div>
+                <div>{discountOn} <span class="result-value">8100</span> UC</div>
             </div>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.7.3/lottie.min.js" is:inline></script>
 
-            <script>
-                const animation = lottie.loadAnimation({
-                    container: document.getElementById('lottie-animation'), // контейнер для анимации
-                    renderer: 'svg', // тип рендерера (может быть 'svg', 'canvas' или 'html')
-                    loop: true, // зацикливание анимации
-                    autoplay: true, // автоматический запуск анимации
-                    path: 'img/out/roulette/speed.json' // путь к JSON-файлу с анимацией
-                });
-            </script>
+            <div class="out-roulette__modal-probability">{textProbability} <span class="result-probability"></span>%</div>
+
+            <div class="out-roulette__modal-footer out-roulette__footer">
+                <Button class="out-roulette__button" size="lg" center="true" style="second">{resultButtonText}</Button>
+                <a href="#" class="out-roulette__link u-hidden-mobile">{linkText}</a>
+            </div>
+
         </div>
     </div>
+    <div class="out-roulette__link-mobile u-visible-mobile text-center"><a href="#">{linkText}</a></div>
 </div>

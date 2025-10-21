@@ -129,6 +129,14 @@
     color: $color-white;
 }
 
+.title-custom {
+    font-family: $custom-font-family;
+    font-weight: 700;
+    line-height: .8;
+    letter-spacing: -.02em;
+    text-transform: uppercase;
+}
+
 .title-prize {
     font-family: $custom-font-family;
     font-weight: 700;
