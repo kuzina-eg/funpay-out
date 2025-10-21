@@ -12,6 +12,10 @@
         height: 604px;
     }
 
+    @include media(mob-md) {
+        height: 547px;
+    }
+
     &__logo {
         width: 92px;
         height: 92px;
@@ -75,6 +79,11 @@
             border-radius: 0 0 20px 20px;
             bottom: 36px;
         }
+
+        @include media(mob-md) {
+            border-radius: 16px;
+            bottom: 36px;
+        }
     }
 
     &__content {
@@ -87,6 +96,10 @@
 
         @include media(mob) {
             width: 330px;
+        }
+
+        @include media(mob-md) {
+            width: 270px;
         }
     }
 
@@ -130,7 +143,7 @@
             top: auto;
             left: 20px;
             bottom: 20px;
-            right: 80px;
+            right: 82px;
             transform: none;
 
             .ui-button {
@@ -207,6 +220,12 @@
                 transform: translateX(-50%) scale(0.8378);
                 transform-origin: center bottom;
             }
+
+            @include media(mob-md) {
+                bottom: 13.89%;
+                transform: translateX(-50%) scale(0.6713);
+                transform-origin: center bottom;
+            }
         }
 
         &-transform,
@@ -238,7 +257,7 @@
         top: 40px;
         z-index: 100;
         color: $color-white;
-        transition: $duration opacity;
+        transition: $duration opacity, $duration color;
 
         svg {
             display: block;
@@ -251,7 +270,7 @@
         }
 
         &:hover {
-            opacity: .8;
+            color: rgba($color-white-rgb, .8);
         }
 
         @include media(mob) {
@@ -267,6 +286,15 @@
                 }
             }
         }
+
+        @include media(mob-md) {
+            top: 26px;
+
+            svg {
+                width: 24px;
+                height: 24px;
+            }
+        }
     }
 
     &__modal-animation {
@@ -278,7 +306,11 @@
             position: absolute;
             left: 50%;
             top: 50%;
-            transform: translate(-50%,-50%) !important;
+            transform: translate(-50%,-53%) !important;
+
+            @include media(mob-md) {
+                transform: translate(-50%,-48%) !important;
+            }
         }
     }
 
@@ -290,6 +322,10 @@
         //transform: translate(-40.5%, -127%) scale(1.4) rotate(-1.76deg);
         //transform: translate(-37.5%, -126%) scale(1.4) rotate(-1.76deg);
         transform: translate(-39.5%, -131%) scale(1.4) rotate(1.76deg);
+
+        @include media(mob-md) {
+            top: 55%;
+        }
 
         &.image1 {
             transform: translate(-39.5%, -131%) scale(1.4) rotate(1.76deg);
@@ -334,6 +370,12 @@
         letter-spacing: -.02em;
         text-align: center;
         text-transform: uppercase;
+
+        @include media(mob) {
+            top: 21px;
+            font-size: 38px;
+            line-height: 1;
+        }
     }
 
     &__modal-result {
@@ -346,6 +388,7 @@
         left: 50%;
         transform: translate(-50%,0);
         font-size: 48px;
+        white-space: nowrap;
 
         div {
             background: linear-gradient(180deg, #FFEFA6 0%, #FFB732 100%);
@@ -353,6 +396,17 @@
             background-clip: text;
             -webkit-text-fill-color: transparent;
             color: transparent;
+        }
+
+        @include media(mob) {
+            top: 63%;
+            gap: 10px;
+            font-size: 50px;
+        }
+
+        @include media(mob-md) {
+            gap: 12px;
+            font-size: 32px;
         }
     }
 
@@ -364,6 +418,17 @@
         transform: translate(-50%,0);
         font-size: 14px;
         line-height: 1;
+        white-space: nowrap;
+
+        @include media(mob) {
+            bottom: 92px;
+            font-size: 12px;
+            line-height: 1.3;
+        }
+
+        @include media(mob-md) {
+            bottom: 96px;
+        }
     }
 
     &__modal-footer {
@@ -372,6 +437,18 @@
         left: 50%;
         bottom: 51px;
         transform: translate(-50%,0);
+
+        @include media(mob) {
+            //right: 82px;
+            right: 20px;
+            bottom: 20px;
+            left: 20px;
+            transform: none;
+
+            .ui-button {
+                width: 100%;
+            }
+        }
     }
 }
 
@@ -447,13 +524,14 @@
 
     .out-roulette__modal-photo-transform {
         animation: sliceShake 1s ease-in-out;
-        animation-delay: -.5s;
+        animation-delay: -.55s;
         animation-fill-mode: forwards;
     }
 
     .out-roulette__modal .slice__image {
+        //margin-bottom: -100px;
         animation: sliceShakeScale 1.8s 1 ease-in-out;
-        animation-delay: -.7s;
+        animation-delay: -.75s;
         animation-fill-mode: forwards;
     }
 
@@ -565,7 +643,8 @@
         transform: scale(1);
     }
     100% {
-        transform: scale(1.3) translateY(-18%);
+        transform: scale(1.4) translateY(-18.5%);
+        //transform: scale(1.4) translateY(-23%);
     }
 }
 

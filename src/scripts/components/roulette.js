@@ -5,20 +5,13 @@ export default function roulette() {
         const playButton = document.querySelector('.js-start-play');
         const roulette = document.querySelector('.roulette');
         const closeButton = document.querySelector('.js-close-roulette-modal');
+        let isPressPlay = false;
+        let isShowModal = false;
         playButton.addEventListener('click', (event) => {
-
-            // определение угла поворота колеса
-            let st = window.getComputedStyle(roulette, null);
-            let tr = st.getPropertyValue('transform');
-
-            let values = tr.split('(')[1].split(')')[0].split(',');
-            let a = values[0];
-            let b = values[1];
-
-            let angle = Math.round(Math.atan2(b, a) * (180 / Math.PI));
-            if (angle < 0) {
-                angle = 360 + angle;
-            }
+            isPressPlay = true;
+            setTimeout(() => {
+                isShowModal = true;
+            }, 7500);
 
             // настройка весов
             const weights = [40, 20, 15, 10, 6, 4, 3, 2]; // в процентах
@@ -36,7 +29,6 @@ export default function roulette() {
                 console.log('Выпал приз №', weightedArray[randomIndex])
                 return weightedArray[randomIndex];
             }
-
             let prizeNum = weightedRandomArray();
 
             // заполняем данные модального окна
@@ -57,35 +49,47 @@ export default function roulette() {
             playButton.setAttribute('disabled', 'disabled');
 
             // включаем таймер
-            const countDownDate = new Date("Oct 25, 2025 0:00:00").getTime();
-
-            // Update the count down every 1 second
+            const date = new Date();
+            const nextDay = date.setDate(date.getDate() + 1);
             const x = setInterval(function () {
 
-                // Get today's date and time
                 const now = new Date().getTime();
+                const distance = nextDay - now;
 
-                // Find the distance between now and the count down date
-                const distance = countDownDate - now;
+                let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                let seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-                // Time calculations for days, hours, minutes and seconds
-                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                if (hours < 10) hours = '0' + hours;
+                if (minutes < 10) minutes = '0' + minutes;
+                if (seconds < 10) seconds = '0' + seconds;
 
-                // Display the result in the elements
-                // console.log('!!!', days + ':' + hours + ':' + minutes + ':' + seconds)
+                if (isPressPlay && isShowModal) {
+                    playButton.querySelector('.ui-button__text').innerHTML = playButton.dataset.next + ': ' + hours + ':' + minutes + ':' + seconds;
+                }
 
-                // If the count down is finished, write some text
+                // включаем назад кнопку, если время вышло
                 if (distance < 0) {
                     clearInterval(x);
+                    isPressPlay = false;
+                    isShowModal = false;
                     playButton.removeAttribute('disabled');
                     playButton.querySelector('.ui-button__text').innerHTML = playButton.dataset.new;
                 }
             }, 1000);
 
+            // определение угла поворота колеса
+            let st = window.getComputedStyle(roulette, null);
+            let tr = st.getPropertyValue('transform');
 
+            let values = tr.split('(')[1].split(')')[0].split(',');
+            let a = values[0];
+            let b = values[1];
+
+            let angle = Math.round(Math.atan2(b, a) * (180 / Math.PI));
+            if (angle < 0) {
+                angle = 360 + angle;
+            }
 
             // устанавливаем начальное и конечное положение поворота колеса
             const root = document.documentElement;
@@ -96,9 +100,9 @@ export default function roulette() {
             rouletteContainer.classList.add('a-start-play');
             document.getElementById('slice' + prizeNum).classList.add('is-active');
 
+            // показываем модальное окно
             setTimeout(() => {
                 rouletteContainer.classList.add('a-show-modal');
-                playButton.querySelector('.ui-button__text').innerHTML = playButton.dataset.next + ': ';
                 const animation = lottie.loadAnimation({
                     container: document.getElementById('lottie-animation'), // контейнер для анимации
                     renderer: 'svg', // тип рендерера (может быть 'svg', 'canvas' или 'html')
@@ -111,6 +115,7 @@ export default function roulette() {
 
         closeButton.addEventListener('click', (event) => {
             rouletteContainer.classList.remove('a-show-modal', 'a-start-play');
+            document.querySelector('.out-roulette__show-prizes .amount').style.display = "flex";
         });
     }
 }

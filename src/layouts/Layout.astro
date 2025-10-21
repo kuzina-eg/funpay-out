@@ -48,8 +48,8 @@ const {
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.7.3/lottie.min.js" is:inline></script>
     </head>
-	<body class={bodyClass ? bodyClass : ''}>
-        <div class="out">
+	<body>
+        <div class={bodyClass ? bodyClass + ' out' : 'out'}>
             <slot />
         </div>
 
