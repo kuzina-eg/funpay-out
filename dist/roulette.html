@@ -18,10 +18,11 @@
             src: url('/fonts/RefrigeratorDeluxe-Bold.woff2') format('woff2');
         }
     </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.7.3/lottie.min.js"></script>
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body class>
+<body>
     <div class="out">
         <div class="out__container container">
             <div class="out-roulette">
@@ -32,7 +33,7 @@
                 </div>
                 <div class="out-roulette__box">
                     <div class="out-roulette__wheel-container">
-                        <div class="out-roulette__wheel">
+                        <div class="out-roulette__wheel-transform">
                             <div class="out-roulette__wheel-rotation a-rotation roulette">
                                 <div class="slice slice1 purple" id="slice1" data-size="sm" data-value="6" data-discount="90"> <svg width="385" height="305" viewBox="0 0 385 305" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <defs>
@@ -167,11 +168,17 @@
                     </div>
                     <div class="out-roulette__content">
                         <div class="out-roulette__text">17 сентября по 1 октября<br> выбивайте скидки на UC</div>
-                        <div class="out-roulette__title">Вращайте барабан и забирай свой приз</div>
-                        <div class="out-roulette__footer"> <button type="button" class="ui-button ui-button--second ui-button--lg ui-button--center out-roulette__button js-start-play"><span class="ui-button__text"> Мне повезет </span></button> <a href="#" class="out-roulette__link">Правила участия</a> </div>
+                        <div class="out-roulette__title title-custom">Вращайте барабан и забирай свой приз</div>
                     </div>
+                    <div class="out-roulette__content-footer out-roulette__footer"> <button type="button" data-next="До следующего трая" data-new="Мне повезет" class="ui-button ui-button--second ui-button--lg ui-button--center out-roulette__button js-start-play"><span class="ui-button__text"> Мне повезет </span></button> <a href="#" class="out-roulette__link u-hidden-mobile">Правила участия</a> </div>
+                    <div class="out-roulette__show-prizes"> <button type="button" class="ui-button ui-button--second"><span class="ui-button__icon"> <svg class="ui-icon ui-icon-gift">
+                                    <use xlink:href="img/icons.svg#gift"></use>
+                                </svg> </span><span class="ui-button__text"> Призы </span><span class="ui-button__amount amount">1</span></button> </div>
                     <div class="out-roulette__modal">
-                        <div class="out-roulette__modal-animation" id="lottie-animation"></div>
+                        <div class="out-roulette__modal-animation" id="lottie-animation"></div> <button type="button" class="ui-button ui-button--link out-roulette__modal-close js-close-roulette-modal"><span class="ui-button__text"> <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 56 56" fill="none">
+                                    <path d="M12 12L44 44" stroke="white" stroke-width="2.625" stroke-linecap="round"></path>
+                                    <path d="M44 12L12 44" stroke="white" stroke-width="2.625" stroke-linecap="round"></path>
+                                </svg> </span></button>
                         <div class="out-roulette__modal-title">Ваш приз</div>
                         <div class="out-roulette__modal-photo">
                             <div class="out-roulette__modal-photo-transform">
@@ -180,23 +187,15 @@
                                 </picture>
                             </div>
                         </div>
-                        <div class="out-roulette__modal-result">
+                        <div class="out-roulette__modal-result title-custom">
                             <div>Скидка <span class="result-discount">50</span>%</div>
                             <div>на <span class="result-value">8100</span> UC</div>
                         </div>
-                        <div class="out-roulette__modal-footer out-roulette__footer"> <button type="button" class="ui-button ui-button--second ui-button--lg ui-button--center out-roulette__button"><span class="ui-button__text"> Применить скидку </span></button> <a href="#" class="out-roulette__link">Правила участия</a> </div>
-                        <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.7.3/lottie.min.js"></script>
-                        <script type="module">
-                            lottie.loadAnimation({
-                                container: document.getElementById("lottie-animation"),
-                                renderer: "svg",
-                                loop: !0,
-                                autoplay: !0,
-                                path: "img/out/roulette/speed2.json"
-                            });
-                        </script>
+                        <div class="out-roulette__modal-probability">Вероятность получения <span class="result-probability"></span>%</div>
+                        <div class="out-roulette__modal-footer out-roulette__footer"> <button type="button" class="ui-button ui-button--second ui-button--lg ui-button--center out-roulette__button"><span class="ui-button__text"> Применить скидку </span></button> <a href="#" class="out-roulette__link u-hidden-mobile">Правила участия</a> </div>
                     </div>
                 </div>
+                <div class="out-roulette__link-mobile u-visible-mobile text-center"><a href="#">Правила участия</a></div>
             </div>
         </div>
     </div>
