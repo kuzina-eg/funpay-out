@@ -1,0 +1,63 @@
+---
+import Button from '@components/modules/Button.astro';
+import TabMenu from '@components/blocks/TabMenu.astro';
+
+interface Props {
+    title?: string;
+    closeText?: string;
+    class?: string;
+    [x: string]: any;
+}
+
+const {
+    title,
+    closeText,
+    class: className,
+    ...rest
+} = Astro.props;
+---
+
+<div class="modal-prizes">
+    <div class="modal-prizes__backdrop"></div>
+    <div class="modal-prizes__wrap">
+        <div class="modal-prizes__container container">
+            <div class="modal-prizes__window">
+                <Button class="modal-prizes__close js-modal-prizes-close" style="link" title={closeText} aria-label={closeText} isText={false} icon="close"></Button>
+
+                <div class="modal-prizes__header">
+                    <div class="modal-prizes__title title-custom">{title}</div>
+                </div>
+                <div class="modal-prizes__content">
+
+                    <div class="tabs js-tabs">
+                        <TabMenu
+                            type="tabs"
+                            classMenu="tab-menu__list--wide"
+                            list={[
+                                {
+                                    text: 'Вы выиграли',
+                                    tabId: 'tab_01',
+                                    isActive: true
+                                },
+                                {
+                                    text: 'Можно выиграть',
+                                    tabId: 'tab_02'
+                                }
+                            ]}
+                        ></TabMenu>
+                        <div class="tabs__panes js-tabs-content">
+                            <div class="tabs__pane js-tabs-pane is-active" data-tabs-pane="tab_01">
+                                 11
+                            </div>
+                            <div class="tabs__pane js-tabs-pane" data-tabs-pane="tab_02">
+                                22
+                            </div>
+                        </div>
+                    </div>
+
+                    Вы пока ничего не выиграли
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

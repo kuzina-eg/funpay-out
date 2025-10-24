@@ -13,12 +13,16 @@
 
 // Modules
 @use "./modules/button";
+//@use "./modules/modal";
 
 // Site blocks
 @use "./blocks/accordion";
 @use "./blocks/alreadyPrizeItem";
 @use "./blocks/alreadyWinnerItem";
 @use "./blocks/instructionItem";
+@use "./blocks/modalPrizes";
+@use "./blocks/tabMenu";
+@use "./blocks/tabs";
 
 // Site sections
 @use "./sections/promo";

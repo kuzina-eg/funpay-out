@@ -24,6 +24,24 @@
             "disabled": false
         },
         {
+            "name": "Рулетка",
+            "link": "roulette.html",
+            "status": "",
+            "disabled": false
+        },
+        {
+            "name": "Рулетка. Eng",
+            "link": "roulette-eng.html",
+            "status": "",
+            "disabled": false
+        },
+        {
+            "name": "Рулетка. Ua",
+            "link": "roulette-ua.html",
+            "status": "",
+            "disabled": false
+        },
+        {
             "name": "Финал",
             "link": "finish.html",
             "status": "",
@@ -38,30 +56,6 @@
         {
             "name": "Финал. Ua",
             "link": "finish-ua.html",
-            "status": "",
-            "disabled": false
-        },
-        {
-            "name": "Финал. Победитель",
-            "link": "finish-winner.html",
-            "status": "",
-            "disabled": false
-        },
-        {
-            "name": "Финал. Победитель. Eng",
-            "link": "finish-winner-eng.html",
-            "status": "",
-            "disabled": false
-        },
-        {
-            "name": "Финал. Победитель. Ua",
-            "link": "finish-winner-ua.html",
-            "status": "",
-            "disabled": false
-        },
-        {
-            "name": "Главная с шапкой и футером",
-            "link": "with-header-footer.html",
             "status": "",
             "disabled": false
         }

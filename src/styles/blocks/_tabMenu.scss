@@ -1,0 +1,61 @@
+@use "@styles/mixins" as *;
+
+/* ------- tab-menu -------- */
+.tab-menu {
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+
+        @include media(mob-md) {
+            &:not(.button-group) {
+                flex-wrap: nowrap;
+                overflow: auto;
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+                margin-right: calc($gutters * -1);
+                margin-left: calc($gutters * -1);
+                padding-left: $gutters;
+                padding-right: $gutters;
+                white-space: nowrap;
+            }
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+        }
+
+        &--wide {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+    }
+
+    &__item {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: $space-sm;
+        padding: 11px $space;
+        border-radius: $radius-xs;
+        border: $color-accent 1px solid;
+        background-color: $color-white;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 1.43;
+        text-decoration: none;
+        text-align: center;
+        color: $color-accent;
+        transition: $duration color, $duration background;
+
+        &:hover {
+           color: $color-accent-hover;
+        }
+
+        &.is-active {
+            background-color: $color-accent;
+            color: $color-white;
+        }
+    }
+}

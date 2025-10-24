@@ -3,6 +3,7 @@ import Layout from '@layouts/Layout.astro';
 import Picture from '@components/modules/Picture.astro';
 
 import Roulette from '@components/sections/Roulette.astro';
+import ModalPrizes from '@components/modals/ModalPrizes.astro';
 
 const items = [
     {
@@ -73,4 +74,11 @@ const items = [
             prizeButtonText="Призы"
         ></Roulette>
     </div>
+
+    <Fragment slot="modals">
+        <ModalPrizes
+            closeText="Закрыть"
+            title="призы"
+        ></ModalPrizes>
+    </Fragment>
 </Layout>

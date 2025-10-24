@@ -1,0 +1,102 @@
+---
+import Icon from '@components/modules/Icon.astro';
+import Button from '@components/modules/Button.astro';
+import Picture from '@components/modules/Picture.astro';
+
+interface Props {
+	type?: 'tabs';
+    style?: 'primary' | 'second';
+    size?: 'xs' | 'sm' | 'md' | 'lg';
+    list?: any;
+    classItem?: string;
+    classMenu?: string;
+    showAll?: boolean;
+    image?: string;
+    class?: string;
+    [x: string]: any;
+}
+
+const {
+    type,
+	style,
+    size,
+	list = [],
+	classItem,
+    classMenu,
+    showAll = false,
+    image,
+	class: className,
+	...rest
+} = Astro.props;
+
+---
+
+<div
+	class:list={[
+		'tab-menu',
+        style ? `tab-menu--${style}` : '',
+        size ? `tab-menu--${size}` : '',
+		className,
+        type === 'tabs' ? 'js-tabs-menu' : '',
+	]}
+	{...rest}
+>
+    {showAll ?
+    <Button class="tab-menu__show-all ui-button--square js-mobile-controls-button" size="md" style="outline" icon="menu" isText={false}></Button>
+    : ''}
+
+    <div
+        class:list={[
+            'tab-menu__list',
+            classMenu ? `${classMenu}` : '',
+        ]}
+    >
+        {type == 'tabs' ?
+            list.map((item) => (
+                item.text || item.title ?
+                <button class:list={[
+                    "tab-menu__item js-tabs-item",
+                    item.isActive ? 'is-active' : '',
+                    item.class || classItem
+                ]}
+                data-tabs-id={item.tabId}>
+                    {item.image ?
+                        <span class="tab-menu__item-photo">
+                            <Picture
+                                class="tab-menu__item-image"
+                                name={item.image}
+                                directory="img/content/games/"
+                                type="jpg"
+                                imageWidth="116"
+                                imageHeight="112"
+                                forMobile={false}
+                            ></Picture>
+                        </span>
+                    : ''}
+                    <span class="tab-menu__item-text" set:html={item.text || item.title}></span>
+                    {
+                        item.value ? <div class="tab-menu__item-value">{item.value}</div>
+                        : ''
+                    }
+                </button> : ''
+            ))
+        :
+            list.map((item, index) => (
+                item.text ?
+                <a href={item.href || item.url || ''} class:list={[
+                    "tab-menu__item", item.isActive ? 'is-active' : '',
+                    item.class || classItem,
+                ]}
+                style={item.activeTabColor ? `--active-tab-color: ${item.activeTabColor}` : null}
+                >
+                    <span set:html={item.text ? item.text : item}></span>
+                    {
+                        item.value ? <div class="tab-menu__item-value">{item.value}</div>
+                        : ''
+                    }
+                </a>
+                : ''
+            ))
+        }
+	</div>
+</div>

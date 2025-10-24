@@ -1,0 +1,21 @@
+@use "@styles/mixins" as *;
+
+@keyframes fadeEffect {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.tabs {
+	&__pane {
+		display: none;
+		animation: fadeEffect 0.2s linear;
+
+		&.is-active {
+			display: block;
+		}
+	}
+}

@@ -1,0 +1,219 @@
+@use "@styles/mixins" as *;
+
+.modal {
+    --modal-window-padding: 2.5rem;
+    --modal-window-radius: 1.25rem;
+    --modal-window-width: 394px;
+    --modal-window-background: var(--color-white, #FFFFFF);
+
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: 999;
+	display: none;
+	width: 100%;
+	height: calc(var(--dvh, 1%) * 100);
+	overflow: hidden;
+    overflow-y: auto;
+	opacity: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    transition: $duration opacity;
+
+    &__header {
+        display: none;
+
+        @include media(mob-md) {
+            display: grid;
+            grid-template-columns: 16px 1fr 16px;
+            width: 100%;
+            gap: $space;
+            flex: 0 0 auto;
+            padding: 12px $gutters 24px;
+        }
+    }
+
+	&__wrap {
+		display: flex;
+		flex-flow: column nowrap;
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0;
+		flex-grow: 0;
+		margin: auto;
+		padding: $gutters;
+		width: 100%;
+		min-height: 100%;
+
+        @include media(mob-md) {
+            justify-content: flex-end;
+            padding: 0;
+
+            .modal:not(.modal--notify) & {
+                justify-content: flex-start;
+                padding: 0;
+                height: 100%;
+                overflow: hidden;
+            }
+        }
+    }
+
+	&__window {
+		position: relative;
+		flex-shrink: 0;
+		flex-grow: 0;
+		padding: var(--modal-window-padding, 3rem);
+        border-radius: var(--modal-window-radius, 1.25rem);
+		width: var(--modal-window-width, 394px);
+		max-width: 100%;
+		background-color: var(--modal-window-background, var(--color-white, #fff));
+
+        &:focus-visible,
+		&:focus {
+			outline: none;
+		}
+
+        @include media(mob-md) {
+            padding: 24px $gutters 34px;
+            width: 100%;
+            border-radius: var(--modal-window-radius, 1.25rem) var(--modal-window-radius, 1.25rem) 0 0;
+
+            .modal:not(.modal--notify) & {
+                background-color: transparent;
+                box-shadow: none;
+                padding: 0 $gutters $gutters;
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+                overflow-y: auto;
+                flex: 1 1 auto;
+                border-radius: 0;
+            }
+        }
+	}
+
+    &__close {
+        position: absolute;
+        top: 0;
+        left: 100%;
+        margin-left: 1.25rem;
+        right: auto;
+        z-index: 20;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 2rem;
+        height: 2rem;
+        background: transparent;
+        transition: $duration color, $duration opacity;
+
+        &:hover,
+        &:active {
+            color: $color-accent;
+            opacity: 1;
+        }
+
+        @include hover {
+            .modal__close-icon {
+                opacity: .8;
+            }
+        }
+
+        @include media(mob-md) {
+            .modal--notify & {
+                left: auto;
+                margin: 0;
+                right: $gutters;
+                top: 24px;
+                width: 24px;
+                height: 24px;
+                border-radius: $radius-xs;
+                color: $color-grey-dark;
+
+                &:focus-visible {
+                    color: $color-accent;
+                }
+
+                svg path {
+                    stroke: currentColor;
+                    stroke-width: 3.5;
+                }
+            }
+        }
+    }
+
+    &__close-icon {
+        display: block;
+        width: 100%;
+        height: 100%;
+        transform: translateZ(0);
+        transition: $duration;
+    }
+
+	&__title {
+        margin-bottom: 1.5rem;
+		font-size: $title-size;
+		font-weight: 600;
+        letter-spacing: -.03em;
+        line-height: 1.142857;
+
+        &--center {
+            text-align: center;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        .modal--notify & {
+            margin-bottom: 16px;
+        }
+
+        @include media(mob-md) {
+            .modal--notify & {
+                margin-bottom: 20px;
+                text-align: left;
+            }
+        }
+    }
+
+	&__text {
+        font-size: $text-size-md-all;
+        color: $color-grey;
+	}
+
+    &__buttons {
+        display: flex;
+        flex-direction: column;
+        gap: $space-sm;
+        column-gap: $space;
+
+        &--center {
+            flex-direction: row;
+            justify-content: center;
+        }
+
+        &--right {
+            flex-direction: row;
+            justify-content: flex-end;
+        }
+    }
+
+    &__footer {
+        margin-top: 24px;
+    }
+
+	&.is-visible {
+		display: block;
+	}
+
+	&.is-active {
+		opacity: 1;
+	}
+}
+
+.is-modal-active {
+	overflow: hidden;
+	touch-action: none;
+    padding-right: var(--modal-scrollbar-compensate);
+}
+

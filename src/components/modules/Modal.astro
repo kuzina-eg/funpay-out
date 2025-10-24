@@ -1,0 +1,101 @@
+---
+import Icon from '@components/modules/Icon.astro';
+
+interface Props {
+    id?: number | string;
+    icon?: string;
+    title?: string;
+    text?: string;
+    textId?: string;
+    modalMainColor?: string;
+    modalSecondColor?: string;
+    titleId?: string;
+    titleClass?: string;
+    titleSize?: string;
+    closeClass?: string;
+    ariaLabel?: string;
+    closeAriaLabel?: string;
+    isCenter?: boolean;
+    isNotify?: boolean;
+    class?: string;
+    [x: string]: any;
+}
+
+const {
+	id,
+    icon,
+	title,
+	text,
+	textId,
+	modalMainColor,
+	modalSecondColor,
+	titleId,
+	titleClass,
+	titleSize,
+	closeClass,
+    ariaLabel = title ? title : '',
+    closeAriaLabel = 'Закрыть',
+    isCenter,
+    isNotify = false,
+    class: className,
+    ...rest
+} = Astro.props;
+
+const style = `
+    ${modalMainColor ? `--modal-main-color: ${modalMainColor};` : ''}
+    ${modalSecondColor ? `--modal-second-color: ${modalSecondColor};` : ''}
+`
+
+---
+<div class:list={[
+		'modal',
+		className,
+        isNotify ? 'modal--notify' : '',
+        'js-modal'
+	]}
+	id={id}
+	aria-hidden="true"
+	tabindex="-1"
+    style={style}
+	{...rest}
+>
+	<div class="modal__wrap">
+        {!isNotify ?
+            <div class="modal__header">
+                <button class="header__back js-modal-close" aria-label="Закрыть"><Icon name="arrow-left"></Icon></button>
+            </div>
+        : ''}
+		<div class="modal__window js-modal-window" role="dialog" aria-modal="true" aria-label={ariaLabel}>
+			<div class="modal__content">
+                {icon ?
+                    <div class="modal__notify-icon" set:html={icon}></div>
+                : ''}
+				{title ?
+                    <div
+                        id={titleId}
+                        class:list={[
+                            'modal__title',
+                            isCenter ?  'modal__title--center' : '',
+                            titleSize ? `modal__title_size_${titleSize}` : '',
+                            titleClass
+                        ]} set:html={title}
+                    ></div>
+                    : ''}
+				{text ? <div
+                    id={textId}
+                    class:list={[
+                        'modal__text',
+                        isCenter ?  'modal__text--center' : '',
+                    ]} set:html={text}></div>
+                    : ''}
+				<slot/>
+			</div>
+			<button type="button" class:list={['modal__close js-modal-close', closeClass]} title={closeAriaLabel} aria-label={closeAriaLabel}>
+                <svg class="modal__close-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6.99194 6.99011L25.0082 25.0099" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+                    <path d="M25.0081 6.99011L6.99182 25.0099" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+			</button>
+		</div>
+	</div>
+</div>

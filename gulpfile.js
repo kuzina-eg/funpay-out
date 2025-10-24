@@ -27,7 +27,7 @@ const spriteSvg = () => {
 		.pipe(svgSprite({
 			mode: {
 				symbol: { // symbol
-					sprite: '../icons.svg'
+					sprite: '../out/icons.svg'
 				}
 			}
 		}))

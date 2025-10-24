@@ -2,8 +2,10 @@
 import setVariables from './setVariables';
 
 /* Import main components ***************** */
+import { modal } from './components/modal.js';
 import setAccordion from './components/accordion';
 import initFancybox from './components/fancybox';
+import setTabs from './components/tabs';
 import roulette from './components/roulette';
 import countDown from './components/countDown';
 
@@ -11,7 +13,9 @@ import countDown from './components/countDown';
 setVariables();
 
 /* Initialization main components ************* */
+modal.init();
 setAccordion();
 initFancybox();
+setTabs();
 roulette();
 countDown();

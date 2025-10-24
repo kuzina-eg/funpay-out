@@ -259,14 +259,15 @@
         color: $color-white;
         transition: $duration opacity, $duration color;
 
-        svg {
-            display: block;
+        .ui-button__icon svg {
+            width: 56px;
+            height: 56px;
 
-            path {
+            //path {
                 stroke: currentColor;
                 stroke-width: 2.625;
                 stroke-linecap: round;
-            }
+            //}
         }
 
         &:hover {
@@ -277,20 +278,20 @@
             right: 20px;
             top: 20px;
 
-            svg {
+            .ui-button__icon svg {
                 width: 32px;
                 height: 32px;
 
-                path {
+                //path {
                     stroke-width: 5;
-                }
+                //}
             }
         }
 
         @include media(mob-md) {
             top: 26px;
 
-            svg {
+            .ui-button__icon svg {
                 width: 24px;
                 height: 24px;
             }
