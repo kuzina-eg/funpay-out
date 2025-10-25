@@ -211,28 +211,27 @@
         &-container {
             position: absolute;
             z-index: 10;
-            bottom: 4px;
+            bottom: -15px;
             left: 50%;
             transform: translateX(-50%);
 
             @include media(mob) {
-                bottom: 12.85%;
+                bottom: -6%;
                 transform: translateX(-50%) scale(0.8378);
-                transform-origin: center bottom;
+                //transform-origin: center bottom;
             }
 
             @include media(mob-md) {
-                bottom: 13.89%;
+                bottom: -26.89%;
                 transform: translateX(-50%) scale(0.6713);
-                transform-origin: center bottom;
             }
         }
 
         &-transform,
         &-rotation,
         &-container {
-            width: 1153px;
-            height: 1153px;
+            width: 1150px;
+            height: 1150px;
         }
 
         &-transform {
@@ -315,47 +314,30 @@
         }
     }
 
-    &__modal-photo {
+    &__modal-photo-container {
         position: absolute;
         left: 50%;
         top: 50%;
+        transform: translate(-50%, -131%);
+
+        @include media(mob) {
+            transform: translate(-50%, -119%) scale(0.8378);
+        }
+
+        @include media(mob-md) {
+            transform: translate(-50%, -89%) scale(0.6713);
+        }
+    }
+
+    &__modal-photo {
         //transform: translate(-41%, -128%) scale(1.75);
         //transform: translate(-40.5%, -127%) scale(1.4) rotate(-1.76deg);
         //transform: translate(-37.5%, -126%) scale(1.4) rotate(-1.76deg);
-        transform: translate(-39.5%, -131%) scale(1.4) rotate(1.76deg);
+        transform: scale(1.4);
 
-        @include media(mob-md) {
-            top: 55%;
-        }
-
-        &.image1 {
-            transform: translate(-39.5%, -131%) scale(1.4) rotate(1.76deg);
-        }
-
-        &.image2 {
-            transform: translate(-48.5%, -135%) scale(1.4) rotate(-2.24deg); //
-        }
-
-        &.image3 {
-            transform: translate(-49.5%, -126%) scale(1.4) rotate(-0.16deg); //
-        }
-
-        &.image4 {
-            //transform: translate(-43%, -125%) scale(1.4) rotate(0.16deg);//
-            transform: translate(-40.5%, -127%) scale(1.4) rotate(-1.76deg)
-        }
-
-        &.image5 {
-            transform: translate(-39.5%, -131%) scale(1.4) rotate(1.76deg);
-        }
-
-        &.image6 {
-            transform: translate(-39.5%, -131%) scale(1.4) rotate(1.76deg);
-        }
-
-        &.image7 {
-            transform: translate(-37.5%, -125%) scale(1.4) rotate(-1.76deg);//
-        }
+        //@include media(mob-md) {
+        //    top: 55%;
+        //}
     }
 
     &__modal-title {
@@ -644,7 +626,7 @@
         transform: scale(1);
     }
     100% {
-        transform: scale(1.4) translateY(-18.5%);
+        transform: scale(1.4) translateY(-17.5%);
         //transform: scale(1.4) translateY(-23%);
     }
 }
@@ -721,50 +703,50 @@
     }
 
     &1 {
-        transform: rotate(1.76deg);
-        top: 831.87px;
-        left: 397.83px;
+        transform: rotate(0);
+        top: 820px;
+        left: 382px;
     }
 
     &2 {
-        transform: rotate(42.94deg);
-        top: 711.83px;
-        left: 101.52px;
+        transform: rotate(45deg);
+        top: 703.57px;
+        left: 100.92px;
     }
 
     &3 {
-        transform: rotate(89.5deg);
-        top: 425.33px;
-        left: -28.32px;
+        transform: rotate(90deg);
+        top: 422.5px;
+        left: -15.5px;
     }
 
     &4 {
-        transform: rotate(133.15deg);
-        top: 144.24px;
-        left: 82.4px;
+        transform: rotate(135deg);
+        top: 141.42px;
+        left: 100.93px;
     }
 
     &5 {
-        transform: rotate(-179.83deg);
-        top: 10.59px;
-        left: 373.82px;
+        transform: rotate(-180deg);
+        top: 25px;
+        left: 382px;
     }
 
     &6 {
-        transform: rotate(-136.39deg);
-        top: 121.53px;
-        left: 660.64px;
+        transform: rotate(-135deg);
+        top: 141.43px;
+        left: 663.08px;
     }
 
     &7 {
-        transform: rotate(-92.14deg);
-        top: 404.14px;
-        left: 796.53px;
+        transform: rotate(-90deg);
+        top: 422.5px;
+        left: 779.5px;
     }
 
     &8 {
-        transform: rotate(-47.35deg);
-        top: 699.03px;
-        left: 682.75px;
+        transform: rotate(-45deg);
+        top: 703.58px;
+        left: 663.08px;
     }
 }
