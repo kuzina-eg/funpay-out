@@ -81,12 +81,6 @@
         user-select: none;
     }
 
-    //img {
-    //    max-width: 100%;
-    //    height: auto;
-    //    vertical-align: middle;
-    //}
-
     a, button {
         &:focus-visible {
             outline: 2px solid $color-accent;
@@ -97,6 +91,17 @@
     ::selection {
         background: $color-accent;
         color: $color-white;
+    }
+}
+
+.js-preloader {
+    .out__container {
+        opacity: 0;
+        transition: opacity .5s ease;
+    }
+
+    &.is-visible .out__container {
+        opacity: 1;
     }
 }
 
@@ -111,12 +116,6 @@
         line-height: 1.1;
         font-weight: 700;
         font-family: $title-font-family;
-
-        @include media-min(mob-md) {
-        }
-
-        @include media-min(mob) {
-        }
     }
 }
 
@@ -148,3 +147,32 @@
     text-transform: uppercase;
 }
 
+.custom-scroll {
+    @supports (-moz-appearance: none) {
+        scrollbar-width: thin;
+    }
+
+    @include media-min(mob) {
+        &::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            border-left: 10px solid $color-white;
+            background-color: $color-white;
+            background-clip: padding-box;
+            cursor: pointer;
+            transition: $duration ease background-color;
+        }
+
+        .tabs__panes:hover &::-webkit-scrollbar-thumb {
+            background-color: $color-accent;
+        }
+
+        &::-webkit-scrollbar-track {
+            background: $color-white;
+            border-left: 10px solid $color-white;
+            border-right: 0 solid $color-white;
+        }
+    }
+}

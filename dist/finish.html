@@ -23,7 +23,7 @@
 </head>
 
 <body>
-    <div class="out--gradient out">
+    <div class="out--gradient out js-preloader">
         <div class="out__container container">
             <section class="out-promo">
                 <div class="out-promo__box">
@@ -41,7 +41,9 @@
                         <div class="out-promo__detail">
                             <h1 class="out-promo__title">Акция завершена — спасибо за участие!</h1>
                             <div class="out-promo__descr">Участники выбили более 10 000 скидок.<br> Новый розыгрыш — совсем скоро</div>
-                            <div class="out-promo__button"> <a href="#" class="ui-button ui-button--second ui-button--lg ui-button--center"><span class="ui-button__text"> Подписаться на новости </span></a> </div>
+                            <div class="out-promo__button out-promo__button--finish"> <a href="roulette.html" class="ui-button ui-button--second ui-button--lg ui-button--center"><span class="ui-button__text"> Подписаться на новости </span></a> <button type="button" data-modal-open="#modal-prizes" class="ui-button ui-button--outline ui-button--lg"><span class="ui-button__icon"> <svg class="ui-icon ui-icon-gift">
+                                            <use xlink:href="img/out/icons.svg#gift"></use>
+                                        </svg> </span><span class="ui-button__text"> Призы </span><span class="ui-button__amount amount">25</span></button> </div>
                         </div>
                     </div>
                 </div>
@@ -207,6 +209,217 @@
                     </div>
                 </div>
             </section>
+        </div>
+    </div>
+    <div class="modal-prizes js-modal" id="modal-prizes" aria-hidden="true" tabindex="-1">
+        <div class="modal-prizes__backdrop"></div>
+        <div class="modal-prizes__wrap">
+            <div class="modal-prizes__container container">
+                <div class="modal-prizes__window js-modal-window" role="dialog" aria-modal="true"> <button type="button" aria-label="Закрыть" title="Закрыть" class="ui-button ui-button--link modal-prizes__close js-modal-close"><span class="ui-button__icon"> <svg class="ui-icon ui-icon-close">
+                                <use xlink:href="img/out/icons.svg#close"></use>
+                            </svg> </span></button>
+                    <div class="modal-prizes__header">
+                        <div class="modal-prizes__title title-custom">призы</div>
+                    </div>
+                    <div class="modal-prizes__content">
+                        <div class="tabs js-tabs">
+                            <div class="tab-menu js-tabs-menu">
+                                <div class="tab-menu__list tab-menu__list--wide"> <button class="tab-menu__item js-tabs-item is-active" data-tabs-id="tab_01"> <span class="tab-menu__item-text">Вы выиграли</span> </button><button class="tab-menu__item js-tabs-item" data-tabs-id="tab_02"> <span class="tab-menu__item-text">Можно выиграть</span> </button> </div>
+                            </div>
+                            <div class="tabs__panes js-tabs-content">
+                                <div class="tabs__pane js-tabs-pane custom-scroll is-active" data-tabs-pane="tab_01">
+                                    <div class="modal-prizes__my-prizes">
+                                        <div class="item-my-prize">
+                                            <div class="item-my-prize__photo">
+                                                <picture>
+                                                    <source type="image/webp" srcset="img/out/prizes/sm@1x.webp 1x, img/out/prizes/sm@2x.webp 2x"> <img class="item-my-prize__image" src="img/out/prizes/sm@1x.png" srcset="img/out/prizes/sm@2x.png 2x" alt="" width="57" height="38" loading="lazy">
+                                                </picture>
+                                            </div>
+                                            <div class="item-my-prize__detail">
+                                                <div class="item-my-prize__value title-custom">60 uc</div>
+                                                <div class="item-my-prize__discount title-custom">со скидкой <span class="title-custom">90%</span></div>
+                                            </div>
+                                            <div class="item-my-prize__button"> <button type="button" class="ui-button ui-button--second"><span class="ui-button__text"> Использовать </span></button> </div>
+                                        </div>
+                                        <div class="item-my-prize">
+                                            <div class="item-my-prize__photo">
+                                                <picture>
+                                                    <source type="image/webp" srcset="img/out/prizes/xl@1x.webp 1x, img/out/prizes/xl@2x.webp 2x"> <img class="item-my-prize__image" src="img/out/prizes/xl@1x.png" srcset="img/out/prizes/xl@2x.png 2x" alt="" width="57" height="38" loading="lazy">
+                                                </picture>
+                                            </div>
+                                            <div class="item-my-prize__detail">
+                                                <div class="item-my-prize__value title-custom">8100 uc</div>
+                                                <div class="item-my-prize__discount title-custom">со скидкой <span class="title-custom">50%</span></div>
+                                            </div>
+                                            <div class="item-my-prize__button"> <button type="button" class="ui-button ui-button--second"><span class="ui-button__text"> Использовать </span></button> </div>
+                                        </div>
+                                        <div class="item-my-prize">
+                                            <div class="item-my-prize__photo">
+                                                <picture>
+                                                    <source type="image/webp" srcset="img/out/prizes/md@1x.webp 1x, img/out/prizes/md@2x.webp 2x"> <img class="item-my-prize__image" src="img/out/prizes/md@1x.png" srcset="img/out/prizes/md@2x.png 2x" alt="" width="57" height="38" loading="lazy">
+                                                </picture>
+                                            </div>
+                                            <div class="item-my-prize__detail">
+                                                <div class="item-my-prize__value title-custom">365 uc</div>
+                                                <div class="item-my-prize__discount title-custom">со скидкой <span class="title-custom">90%</span></div>
+                                            </div>
+                                            <div class="item-my-prize__button"> <button type="button" disabled class="ui-button ui-button--second"><span class="ui-button__text"> Потрачено </span></button> </div>
+                                        </div>
+                                        <div class="item-my-prize">
+                                            <div class="item-my-prize__photo">
+                                                <picture>
+                                                    <source type="image/webp" srcset="img/out/prizes/lg@1x.webp 1x, img/out/prizes/lg@2x.webp 2x"> <img class="item-my-prize__image" src="img/out/prizes/lg@1x.png" srcset="img/out/prizes/lg@2x.png 2x" alt="" width="57" height="38" loading="lazy">
+                                                </picture>
+                                            </div>
+                                            <div class="item-my-prize__detail">
+                                                <div class="item-my-prize__value title-custom">1800 uc</div>
+                                                <div class="item-my-prize__discount title-custom">со скидкой <span class="title-custom">50%</span></div>
+                                            </div>
+                                            <div class="item-my-prize__button"> <button type="button" class="ui-button ui-button--second"><span class="ui-button__text"> Использовать </span></button> </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tabs__pane js-tabs-pane custom-scroll" data-tabs-pane="tab_02">
+                                    <div class="modal-prizes__prizes">
+                                        <div class="item-prize">
+                                            <div class="item-prize__photo">
+                                                <picture>
+                                                    <source type="image/webp" srcset="img/out/prizes/sm@1x.webp 1x, img/out/prizes/sm@2x.webp 2x"> <img class="item-prize__image" src="img/out/prizes/sm@1x.png" srcset="img/out/prizes/sm@2x.png 2x" alt="" width="105" height="70" loading="lazy">
+                                                </picture>
+                                            </div>
+                                            <div class="item-prize__detail">
+                                                <div class="item-prize__discount discount-prize">90%</div>
+                                                <div class="item-prize__value title-custom">60</div>
+                                                <div class="item-prize__unit title-custom">Unknow Coin</div>
+                                            </div>
+                                        </div>
+                                        <div class="item-prize">
+                                            <div class="item-prize__photo">
+                                                <picture>
+                                                    <source type="image/webp" srcset="img/out/prizes/sm@1x.webp 1x, img/out/prizes/sm@2x.webp 2x"> <img class="item-prize__image" src="img/out/prizes/sm@1x.png" srcset="img/out/prizes/sm@2x.png 2x" alt="" width="105" height="70" loading="lazy">
+                                                </picture>
+                                            </div>
+                                            <div class="item-prize__detail">
+                                                <div class="item-prize__discount discount-prize">80%</div>
+                                                <div class="item-prize__value title-custom">60</div>
+                                                <div class="item-prize__unit title-custom">Unknow Coin</div>
+                                            </div>
+                                        </div>
+                                        <div class="item-prize">
+                                            <div class="item-prize__photo">
+                                                <picture>
+                                                    <source type="image/webp" srcset="img/out/prizes/sm@1x.webp 1x, img/out/prizes/sm@2x.webp 2x"> <img class="item-prize__image" src="img/out/prizes/sm@1x.png" srcset="img/out/prizes/sm@2x.png 2x" alt="" width="105" height="70" loading="lazy">
+                                                </picture>
+                                            </div>
+                                            <div class="item-prize__detail">
+                                                <div class="item-prize__discount discount-prize">50%</div>
+                                                <div class="item-prize__value title-custom">60</div>
+                                                <div class="item-prize__unit title-custom">Unknow Coin</div>
+                                            </div>
+                                        </div>
+                                        <div class="item-prize">
+                                            <div class="item-prize__photo">
+                                                <picture>
+                                                    <source type="image/webp" srcset="img/out/prizes/sm@1x.webp 1x, img/out/prizes/sm@2x.webp 2x"> <img class="item-prize__image" src="img/out/prizes/sm@1x.png" srcset="img/out/prizes/sm@2x.png 2x" alt="" width="105" height="70" loading="lazy">
+                                                </picture>
+                                            </div>
+                                            <div class="item-prize__detail">
+                                                <div class="item-prize__discount discount-prize">30%</div>
+                                                <div class="item-prize__value title-custom">60</div>
+                                                <div class="item-prize__unit title-custom">Unknow Coin</div>
+                                            </div>
+                                        </div>
+                                        <div class="item-prize">
+                                            <div class="item-prize__photo">
+                                                <picture>
+                                                    <source type="image/webp" srcset="img/out/prizes/md@1x.webp 1x, img/out/prizes/md@2x.webp 2x"> <img class="item-prize__image" src="img/out/prizes/md@1x.png" srcset="img/out/prizes/md@2x.png 2x" alt="" width="105" height="70" loading="lazy">
+                                                </picture>
+                                            </div>
+                                            <div class="item-prize__detail">
+                                                <div class="item-prize__discount discount-prize">80%</div>
+                                                <div class="item-prize__value title-custom">120</div>
+                                                <div class="item-prize__unit title-custom">Unknow Coin</div>
+                                            </div>
+                                        </div>
+                                        <div class="item-prize">
+                                            <div class="item-prize__photo">
+                                                <picture>
+                                                    <source type="image/webp" srcset="img/out/prizes/md@1x.webp 1x, img/out/prizes/md@2x.webp 2x"> <img class="item-prize__image" src="img/out/prizes/md@1x.png" srcset="img/out/prizes/md@2x.png 2x" alt="" width="105" height="70" loading="lazy">
+                                                </picture>
+                                            </div>
+                                            <div class="item-prize__detail">
+                                                <div class="item-prize__discount discount-prize">50%</div>
+                                                <div class="item-prize__value title-custom">120</div>
+                                                <div class="item-prize__unit title-custom">Unknow Coin</div>
+                                            </div>
+                                        </div>
+                                        <div class="item-prize">
+                                            <div class="item-prize__photo">
+                                                <picture>
+                                                    <source type="image/webp" srcset="img/out/prizes/md@1x.webp 1x, img/out/prizes/md@2x.webp 2x"> <img class="item-prize__image" src="img/out/prizes/md@1x.png" srcset="img/out/prizes/md@2x.png 2x" alt="" width="105" height="70" loading="lazy">
+                                                </picture>
+                                            </div>
+                                            <div class="item-prize__detail">
+                                                <div class="item-prize__discount discount-prize">30%</div>
+                                                <div class="item-prize__value title-custom">120</div>
+                                                <div class="item-prize__unit title-custom">Unknow Coin</div>
+                                            </div>
+                                        </div>
+                                        <div class="item-prize">
+                                            <div class="item-prize__photo">
+                                                <picture>
+                                                    <source type="image/webp" srcset="img/out/prizes/lg@1x.webp 1x, img/out/prizes/lg@2x.webp 2x"> <img class="item-prize__image" src="img/out/prizes/lg@1x.png" srcset="img/out/prizes/lg@2x.png 2x" alt="" width="105" height="70" loading="lazy">
+                                                </picture>
+                                            </div>
+                                            <div class="item-prize__detail">
+                                                <div class="item-prize__discount discount-prize">50%</div>
+                                                <div class="item-prize__value title-custom">365</div>
+                                                <div class="item-prize__unit title-custom">Unknow Coin</div>
+                                            </div>
+                                        </div>
+                                        <div class="item-prize">
+                                            <div class="item-prize__photo">
+                                                <picture>
+                                                    <source type="image/webp" srcset="img/out/prizes/lg@1x.webp 1x, img/out/prizes/lg@2x.webp 2x"> <img class="item-prize__image" src="img/out/prizes/lg@1x.png" srcset="img/out/prizes/lg@2x.png 2x" alt="" width="105" height="70" loading="lazy">
+                                                </picture>
+                                            </div>
+                                            <div class="item-prize__detail">
+                                                <div class="item-prize__discount discount-prize">30%</div>
+                                                <div class="item-prize__value title-custom">365</div>
+                                                <div class="item-prize__unit title-custom">Unknow Coin</div>
+                                            </div>
+                                        </div>
+                                        <div class="item-prize">
+                                            <div class="item-prize__photo">
+                                                <picture>
+                                                    <source type="image/webp" srcset="img/out/prizes/xl@1x.webp 1x, img/out/prizes/xl@2x.webp 2x"> <img class="item-prize__image" src="img/out/prizes/xl@1x.png" srcset="img/out/prizes/xl@2x.png 2x" alt="" width="105" height="70" loading="lazy">
+                                                </picture>
+                                            </div>
+                                            <div class="item-prize__detail">
+                                                <div class="item-prize__discount discount-prize">50%</div>
+                                                <div class="item-prize__value title-custom">1800</div>
+                                                <div class="item-prize__unit title-custom">Unknow Coin</div>
+                                            </div>
+                                        </div>
+                                        <div class="item-prize">
+                                            <div class="item-prize__photo">
+                                                <picture>
+                                                    <source type="image/webp" srcset="img/out/prizes/xl@1x.webp 1x, img/out/prizes/xl@2x.webp 2x"> <img class="item-prize__image" src="img/out/prizes/xl@1x.png" srcset="img/out/prizes/xl@2x.png 2x" alt="" width="105" height="70" loading="lazy">
+                                                </picture>
+                                            </div>
+                                            <div class="item-prize__detail">
+                                                <div class="item-prize__discount discount-prize">30%</div>
+                                                <div class="item-prize__value title-custom">8100</div>
+                                                <div class="item-prize__unit title-custom">Unknow Coin</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <script type="module" src="js/main.js"></script>

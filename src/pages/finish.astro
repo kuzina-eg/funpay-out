@@ -6,6 +6,7 @@ import Promo from '@components/sections/Promo.astro';
 import Already from '@components/sections/Already.astro';
 import Participants from '@components/sections/Participants.astro';
 import FinishFooter from '@components/sections/FinishFooter.astro';
+import ModalPrizes from '@components/modals/ModalPrizes.astro';
 
 const alreadyPrizes = [
     {
@@ -104,6 +105,97 @@ const participants = [
     },
 ]
 
+
+const prizesItems = [
+    {
+        value: 60,
+        discount: 90,
+        image: 'sm',
+    },
+    {
+        value: 60,
+        discount: 80,
+        image: 'sm',
+    },
+    {
+        value: 60,
+        discount: 50,
+        image: 'sm',
+    },
+    {
+        value: 60,
+        discount: 30,
+        image: 'sm',
+    },
+    {
+        value: 120,
+        discount: 80,
+        image: 'md',
+    },
+    {
+        value: 120,
+        discount: 50,
+        image: 'md',
+    },
+    {
+        value: 120,
+        discount: 30,
+        image: 'md',
+    },
+    {
+        value: 365,
+        discount: 50,
+        image: 'lg',
+    },
+    {
+        value: 365,
+        discount: 30,
+        image: 'lg',
+    },
+    {
+        value: 1800,
+        discount: 50,
+        image: 'xl',
+    },
+    {
+        value: 8100,
+        discount: 30,
+        image: 'xl',
+    },
+]
+
+
+const myPrizes = [
+    {
+        value: 60,
+        discount: 90,
+        image: 'sm',
+        isActive: true,
+        buttonText: 'Использовать',
+    },
+    {
+        value: 8100,
+        discount: 50,
+        image: 'xl',
+        isActive: true,
+        buttonText: 'Использовать',
+    },
+    {
+        value: 365,
+        discount: 90,
+        image: 'md',
+        isActive: false,
+        buttonText: 'Потрачено',
+    },
+    {
+        value: 1800,
+        discount: 50,
+        image: 'lg',
+        isActive: true,
+        buttonText: 'Использовать',
+    },
+]
+
 ---
 <Layout title="Out" bodyClass="out--gradient">
     <div class="out__container container">
@@ -111,6 +203,7 @@ const participants = [
             title="Акция завершена&nbsp;&mdash; спасибо за&nbsp;участие!"
             text="Участники выбили более 10&nbsp;000&nbsp;скидок.<br> Новый розыгрыш&nbsp;&mdash; совсем скоро"
             buttonText="Подписаться на новости"
+            prizeButtonText="Призы"
         ></Promo>
         <Already
             title="Сколько скидок раздали<br> с&nbsp;<strong>17</strong>&nbsp;сентября по&nbsp;<strong>17</strong>&nbsp;октября"
@@ -129,4 +222,18 @@ const participants = [
             buttonText="Подписаться на розыгрыши"
         ></FinishFooter>
     </div>
+
+
+    <Fragment slot="modals">
+        <ModalPrizes
+            title="призы"
+            tabTitlePrizes="Можно выиграть"
+            tabTitleMyPrizes="Вы выиграли"
+            closeText="Закрыть"
+            items={prizesItems}
+            myPrizes={myPrizes}
+            discountText="со скидкой"
+            emptyText="Вы&nbsp;пока ничего<br> не&nbsp;выиграли"
+        ></ModalPrizes>
+    </Fragment>
 </Layout>

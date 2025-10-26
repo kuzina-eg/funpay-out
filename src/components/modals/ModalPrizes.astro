@@ -1,28 +1,41 @@
 ---
 import Button from '@components/modules/Button.astro';
 import TabMenu from '@components/blocks/TabMenu.astro';
+import Picture from '@components/modules/Picture.astro';
 
 interface Props {
     title?: string;
+    tabTitlePrizes?: string;
+    tabTitleMyPrizes?: string;
     closeText?: string;
+    discountText?: string;
+    emptyText?: string;
+    items?: Array<string>;
+    myPrizes?: Array<string>;
     class?: string;
     [x: string]: any;
 }
 
 const {
     title,
+    tabTitlePrizes,
+    tabTitleMyPrizes,
     closeText,
+    discountText,
+    emptyText,
+    items = [],
+    myPrizes = [],
     class: className,
     ...rest
 } = Astro.props;
 ---
 
-<div class="modal-prizes">
+<div class="modal-prizes js-modal" id="modal-prizes" aria-hidden="true" tabindex="-1">
     <div class="modal-prizes__backdrop"></div>
     <div class="modal-prizes__wrap">
         <div class="modal-prizes__container container">
-            <div class="modal-prizes__window">
-                <Button class="modal-prizes__close js-modal-prizes-close" style="link" title={closeText} aria-label={closeText} isText={false} icon="close"></Button>
+            <div class="modal-prizes__window js-modal-window" role="dialog" aria-modal="true">
+                <Button class="modal-prizes__close js-modal-close" style="link" title={closeText} aria-label={closeText} isText={false} icon="close"></Button>
 
                 <div class="modal-prizes__header">
                     <div class="modal-prizes__title title-custom">{title}</div>
@@ -35,27 +48,73 @@ const {
                             classMenu="tab-menu__list--wide"
                             list={[
                                 {
-                                    text: 'Вы выиграли',
+                                    text: tabTitleMyPrizes,
                                     tabId: 'tab_01',
                                     isActive: true
                                 },
                                 {
-                                    text: 'Можно выиграть',
+                                    text: tabTitlePrizes,
                                     tabId: 'tab_02'
                                 }
                             ]}
                         ></TabMenu>
                         <div class="tabs__panes js-tabs-content">
-                            <div class="tabs__pane js-tabs-pane is-active" data-tabs-pane="tab_01">
-                                 11
+                            <div class="tabs__pane js-tabs-pane custom-scroll is-active" data-tabs-pane="tab_01">
+                                {myPrizes && myPrizes.length ?
+                                    <div class="modal-prizes__my-prizes">
+                                        {myPrizes.map((item) => (
+                                            <div class="item-my-prize">
+                                                <div class="item-my-prize__photo">
+                                                    <Picture
+                                                        class="item-my-prize__image"
+                                                        name={item.image}
+                                                        directory="img/out/prizes/"
+                                                        type="png"
+                                                        imageWidth="57"
+                                                        imageHeight="38"
+                                                        forMobile={false}
+                                                    ></Picture>
+                                                </div>
+                                                <div class="item-my-prize__detail">
+                                                    <div class="item-my-prize__value title-custom">{item.value} uc</div>
+                                                    <div class="item-my-prize__discount title-custom">{discountText} <span class="title-custom">{item.discount}%</span></div>
+                                                </div>
+                                                <div class="item-my-prize__button">
+                                                    <Button style="second" disabled={item.isActive ? null : 'disabled'}>{item.buttonText}</Button>
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                    :
+                                    <div class="modal-prizes__empty title-custom" set:html={emptyText}></div>
+                                }
                             </div>
-                            <div class="tabs__pane js-tabs-pane" data-tabs-pane="tab_02">
-                                22
+                            <div class="tabs__pane js-tabs-pane custom-scroll" data-tabs-pane="tab_02">
+                                <div class="modal-prizes__prizes">
+                                    {items.map((item) => (
+                                        <div class="item-prize">
+                                            <div class="item-prize__photo">
+                                                <Picture
+                                                    class="item-prize__image"
+                                                    name={item.image}
+                                                    directory="img/out/prizes/"
+                                                    type="png"
+                                                    imageWidth="105"
+                                                    imageHeight="70"
+                                                    forMobile={false}
+                                                ></Picture>
+                                            </div>
+                                            <div class="item-prize__detail">
+                                                { item.discount ? <div class="item-prize__discount discount-prize">{item.discount}%</div> : '' }
+                                                <div class="item-prize__value title-custom">{item.value}</div>
+                                                <div class="item-prize__unit title-custom">Unknow Coin</div>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
                             </div>
                         </div>
                     </div>
-
-                    Вы пока ничего не выиграли
                 </div>
             </div>
         </div>

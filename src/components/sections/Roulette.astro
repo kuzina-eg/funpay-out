@@ -98,19 +98,12 @@ const {
         </div>
 
         <div class="out-roulette__show-prizes">
-            <Button style="second" icon="gift" amount="1" data-modal-open="#modal-login">{prizeButtonText}</Button>
+            <Button style="second" icon="gift" amount="1" data-modal-open="#modal-prizes">{prizeButtonText}</Button>
         </div>
 
         <div class="out-roulette__modal">
             <div class="out-roulette__modal-animation" id="lottie-animation"></div>
-            <Button style="link" class="out-roulette__modal-close js-close-roulette-modal" icon="close" isText={false}>
-                <!--
-                <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 56 56" fill="none">
-                    <path d="M12 12L44 44" stroke="white" stroke-width="2.625" stroke-linecap="round"/>
-                    <path d="M44 12L12 44" stroke="white" stroke-width="2.625" stroke-linecap="round"/>
-                </svg>
-                -->
-            </Button>
+            <Button style="link" class="out-roulette__modal-close js-close-roulette-modal" icon="close" isText={false}></Button>
             <div class="out-roulette__modal-title">{resultTitle}</div>
             <div class="out-roulette__modal-photo-container">
                 <div class="out-roulette__modal-photo">

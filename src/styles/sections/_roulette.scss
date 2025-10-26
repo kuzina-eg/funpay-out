@@ -52,7 +52,7 @@
     }
 
     &__box {
-        background-image: url("img/out/roulette/bg.webp");
+        background-image: url("../img/out/roulette/bg.webp");
         background-size: 110%;
         background-repeat: no-repeat;
         background-position: 65% 50%;
@@ -676,14 +676,14 @@
     color: #ffffff;
     font-family: $custom-font-family;
     letter-spacing: .1em;
-    background-image: url("img/out/slice.svg");
+    background-image: url("../img/out/slice.svg");
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: 100% 100%;
     position: absolute;
 
     &.purple {
-        background-image: url("img/out/slice-purple.svg");
+        background-image: url("../img/out/slice-purple.svg");
     }
 
     &__text {

@@ -86,20 +86,8 @@ const openModal = (currentModal, isDoubleModal = false) => {
 			setTimeout(() => {
 				modal.afterOpen();
 
-				if (modalWindow) {
-					// modalWindow.focus();
-				}
-
 			}, timeout);
 		}
-
-		setTimeout(() => {
-			if (modalWindow) {
-				// modalWindow.focus();
-                // document.activeElement = modalWindow;
-			}
-
-		}, timeout);
 	}
 };
 
@@ -243,7 +231,6 @@ document.documentElement.openModal = modal.open = (selector, callbackCurrent) =>
             closeModal(activeModal, true);
 
 			if (activeModal !== currentModal) {
-				// closeModal(activeModal, true);
 				openModal(currentModal, true);
 			}
         }

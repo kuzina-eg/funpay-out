@@ -56,6 +56,95 @@ const items = [
     },
 ]
 
+const prizesItems = [
+    {
+        value: 60,
+        discount: 90,
+        image: 'sm',
+    },
+    {
+        value: 60,
+        discount: 80,
+        image: 'sm',
+    },
+    {
+        value: 60,
+        discount: 50,
+        image: 'sm',
+    },
+    {
+        value: 60,
+        discount: 30,
+        image: 'sm',
+    },
+    {
+        value: 120,
+        discount: 80,
+        image: 'md',
+    },
+    {
+        value: 120,
+        discount: 50,
+        image: 'md',
+    },
+    {
+        value: 120,
+        discount: 30,
+        image: 'md',
+    },
+    {
+        value: 365,
+        discount: 50,
+        image: 'lg',
+    },
+    {
+        value: 365,
+        discount: 30,
+        image: 'lg',
+    },
+    {
+        value: 1800,
+        discount: 50,
+        image: 'xl',
+    },
+    {
+        value: 8100,
+        discount: 30,
+        image: 'xl',
+    },
+]
+
+const myPrizes = [
+    {
+        value: 60,
+        discount: 90,
+        image: 'sm',
+        isActive: true,
+        buttonText: 'Использовать',
+    },
+    {
+        value: 8100,
+        discount: 50,
+        image: 'xl',
+        isActive: true,
+        buttonText: 'Использовать',
+    },
+    {
+        value: 365,
+        discount: 90,
+        image: 'md',
+        isActive: false,
+        buttonText: 'Потрачено',
+    },
+    {
+        value: 1800,
+        discount: 50,
+        image: 'lg',
+        isActive: true,
+        buttonText: 'Использовать',
+    },
+]
+
 ---
 <Layout title="Out Колесо фортуны">
     <div class="out__container container">
@@ -77,8 +166,14 @@ const items = [
 
     <Fragment slot="modals">
         <ModalPrizes
-            closeText="Закрыть"
             title="призы"
+            tabTitlePrizes="Можно выиграть"
+            tabTitleMyPrizes="Вы выиграли"
+            closeText="Закрыть"
+            items={prizesItems}
+            myPrizes={myPrizes}
+            discountText="со скидкой"
+            emptyText="Вы&nbsp;пока ничего<br> не&nbsp;выиграли"
         ></ModalPrizes>
     </Fragment>
 </Layout>

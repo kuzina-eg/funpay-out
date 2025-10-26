@@ -7,6 +7,7 @@ interface Props {
     text?: string;
     buttonText?: string;
     rulesLink?: string;
+    prizeButtonText?: string;
 }
 
 const {
@@ -14,6 +15,7 @@ const {
     text,
     buttonText,
     rulesLink,
+    prizeButtonText,
     class: className,
     ...rest
 } = Astro.props;
@@ -55,9 +57,15 @@ const {
             <div class="out-promo__detail">
                 <h1 class="out-promo__title" set:html={title}></h1>
                 <div class="out-promo__descr" set:html={text}></div>
-                <div class="out-promo__button">
-                    <Button type="link" href="#" style="second" center="true" size="lg">{buttonText}</Button>
+                <div
+                    class:list={[
+                        'out-promo__button',
+                        prizeButtonText ? 'out-promo__button--finish' : ''
+                    ]}
+                >
+                    <Button type="link" href="roulette.html" style="second" center="true" size="lg">{buttonText}</Button>
                     { rulesLink ? <Button type="link" style="link" href="#" center="true">{rulesLink}</Button> : '' }
+                    { prizeButtonText ? <Button style="outline" size="lg" icon="gift" amount="25" data-modal-open="#modal-prizes">{prizeButtonText}</Button> : '' }
                 </div>
             </div>
         </div>
