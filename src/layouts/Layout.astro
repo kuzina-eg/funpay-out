@@ -50,6 +50,32 @@ const {
     </head>
 	<body>
         <div class={bodyClass ? bodyClass + ' out js-preloader' : 'out js-preloader'}>
+            <svg class="loader js-loader" x="0" y="0" viewBox="0 0 100 100" width="100" height="100">
+                <circle stroke="none" cx="30" cy="50" r="6">
+                    <animate
+                        attributeName="opacity"
+                        dur="1s"
+                        values="0;1;0"
+                        repeatCount="indefinite"
+                        begin="0.1"/>
+                </circle>
+                <circle stroke="none" cx="50" cy="50" r="6">
+                    <animate
+                        attributeName="opacity"
+                        dur="1s"
+                        values="0;1;0"
+                        repeatCount="indefinite"
+                        begin="0.2"/>
+                </circle>
+                <circle stroke="none" cx="70" cy="50" r="6">
+                    <animate
+                        attributeName="opacity"
+                        dur="1s"
+                        values="0;1;0"
+                        repeatCount="indefinite"
+                        begin="0.3"/>
+                </circle>
+            </svg>
             <slot />
         </div>
 

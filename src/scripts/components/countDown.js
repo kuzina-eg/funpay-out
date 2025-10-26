@@ -3,7 +3,7 @@ export default function countDown() {
 
     if (countdown) {
         // Set the date we're counting down to
-        const countDownDate = new Date("Sep 16, 2025 00:00:00").getTime();
+        const countDownDate = new Date("Nov 1, 2025 00:00:00").getTime();
 
         // Update the count down every 1 second
         const x = setInterval(function () {
@@ -15,24 +15,23 @@ export default function countDown() {
             const distance = countDownDate - now;
 
             // Time calculations for days, hours, minutes and seconds
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            if (hours < 10) hours = '0' + hours;
+            if (minutes < 10) minutes = '0' + minutes;
+            if (seconds < 10) seconds = '0' + seconds;
 
             // Display the result in the elements
-            countdown.querySelector('.js-days').innerHTML = days;
-            countdown.querySelector('.js-hours').innerHTML = hours;
-            countdown.querySelector('.js-minutes').innerHTML = minutes;
-            // document.getElementById("demo").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+            countdown.querySelector('.ui-button__text').innerHTML = countdown.dataset.next + ': ' + hours + ':' + minutes + ':' + seconds;
 
             // If the count down is finished, write some text
             if (distance < 0) {
                 clearInterval(x);
-                countdown.querySelector('.js-days').innerHTML = 0;
-                countdown.querySelector('.js-hours').innerHTML = 0;
-                countdown.querySelector('.js-minutes').innerHTML = 0;
-            }
+                countdown.removeAttribute('disabled');
+                countdown.querySelector('.ui-button__text').innerHTML = countdown.dataset.new;            }
         }, 1000);
     }
 }

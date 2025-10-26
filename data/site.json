@@ -42,6 +42,24 @@
             "disabled": false
         },
         {
+            "name": "Рулетка. Следующая попытка завтра &amp; Вы пока ничего не выиграли",
+            "link": "roulette-lock.html",
+            "status": "",
+            "disabled": false
+        },
+        {
+            "name": "Рулетка. Следующая попытка завтра &amp; Вы пока ничего не выиграли. Eng",
+            "link": "roulette-lock-eng.html",
+            "status": "",
+            "disabled": false
+        },
+        {
+            "name": "Рулетка. Следующая попытка завтра &amp; Вы пока ничего не выиграли. Ua",
+            "link": "roulette-lock-ua.html",
+            "status": "",
+            "disabled": false
+        },
+        {
             "name": "Финал",
             "link": "finish.html",
             "status": "",

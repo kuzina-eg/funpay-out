@@ -155,8 +155,34 @@
     &__button {
         transition: $duration transform, $duration background-color, $duration color;
 
+        &:before {
+            content: "";
+            display: block;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            transition: $duration transform;
+        }
+
         &:active {
             transform: scale(.8);
+
+            &:before {
+                transform: scale(1.2);
+            }
+        }
+
+        .loader {
+            width: 50px;
+            height: 50px;
+            display: inline-flex;
+            vertical-align: middle;
+
+            circle {
+                fill: currentColor;
+            }
         }
     }
 
@@ -393,6 +419,10 @@
         }
     }
 
+    &__modal-on {
+        text-transform: none;
+    }
+
     &__modal-probability {
         position: absolute;
         z-index: 10;
@@ -512,13 +542,18 @@
     }
 
     .out-roulette__modal .slice__image {
-        //margin-bottom: -100px;
         animation: sliceShakeScale 1.8s 1 ease-in-out;
         animation-delay: -.75s;
         animation-fill-mode: forwards;
     }
 
-    .out-roulette__modal-animation,
+    .out-roulette__modal-animation {
+        opacity: 0;
+        animation: showModal .4s;
+        animation-delay: .61s;
+        animation-fill-mode: forwards;
+    }
+
     .out-roulette__modal-close,
     .out-roulette__modal-title,
     .out-roulette__modal-result,
@@ -526,7 +561,7 @@
     .out-roulette__modal-probability {
         opacity: 0;
         animation: showModal .4s;
-        animation-delay: .65s;
+        animation-delay: .63s;
         animation-fill-mode: forwards;
     }
 }
@@ -700,6 +735,7 @@
         width: 201px;
         height: 134px;
         display: block;
+        max-width: none;
     }
 
     &1 {

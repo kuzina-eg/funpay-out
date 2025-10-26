@@ -12,32 +12,32 @@ const alreadyPrizes = [
     {
         image: 'xl',
         prizeValue: 8100,
-        text: 'Раздали > 300&nbsp;000&nbsp;шт.',
+        text: 'Handed out > 300&nbsp;000&nbsp;pcs.',
     },
     {
         image: 'md',
         prizeValue: 8100,
-        text: 'Раздали > 300&nbsp;000&nbsp;шт.',
+        text: 'Handed out > 300&nbsp;000&nbsp;pcs.',
     },
     {
         image: 'sm',
         prizeValue: 365,
-        text: 'Раздали > 300&nbsp;000&nbsp;шт.',
+        text: 'Handed out > 300&nbsp;000&nbsp;pcs.',
     },
     {
         image: 'xl',
         prizeValue: 8100,
-        text: 'Раздали > 300&nbsp;000&nbsp;шт.',
+        text: 'Handed out > 300&nbsp;000&nbsp;pcs.',
     },
     {
         image: 'md',
         prizeValue: 8100,
-        text: 'Раздали > 300&nbsp;000&nbsp;шт.',
+        text: 'Handed out > 300&nbsp;000&nbsp;pcs.',
     },
     {
         image: 'sm',
         prizeValue: 365,
-        text: 'Раздали > 300&nbsp;000&nbsp;шт.',
+        text: 'Handed out > 300&nbsp;000&nbsp;pcs.',
     },
 ]
 
@@ -46,61 +46,61 @@ const alreadyWinners = [
         image: 'lg',
         prizeValue: 1800,
         discount: 80,
-        name: 'Имя пользователя',
+        name: 'Username',
         date: '20 минут назад',
     },
     {
         image: 'lg',
         prizeValue: 2000,
         discount: 80,
-        name: 'Имя пользователя',
+        name: 'Username',
         date: '20 минут назад',
     },
     {
         image: 'md',
         prizeValue: 1800,
         discount: 80,
-        name: 'Имя пользователя',
+        name: 'Username',
         date: '20 минут назад',
     },
     {
         image: 'lg',
         prizeValue: 1800,
         discount: 50,
-        name: 'Имя пользователя',
+        name: 'Username',
         date: '20 минут назад',
     },
 ]
 
 const participants = [
     {
-        name: 'Имя пользователя',
-        status: 'Получил более 23 призов',
+        name: 'Username',
+        status: 'Received over 23 prizes',
         image: '01',
     },
     {
-        name: 'Имя пользователя',
-        status: 'Получил более 23 призов',
+        name: 'Username',
+        status: 'Received over 23 prizes',
         image: '02',
     },
     {
-        name: 'Имя пользователяпользователяпользователяпользователяпользователя',
-        status: 'Получил более 23 призов',
+        name: 'Username',
+        status: 'Received over 23 prizes',
         image: '01',
     },
     {
-        name: 'Имя пользователя',
-        status: 'Получил более 23 призов',
+        name: 'Username',
+        status: 'Received over 23 prizes',
         image: '02',
     },
     {
-        name: 'Имя пользователя',
-        status: 'Получил более 23 призов',
+        name: 'Username',
+        status: 'Received over 23 prizes',
         image: '01',
     },
     {
-        name: 'Имя пользователя',
-        status: 'Получил более 23 призов',
+        name: 'Username',
+        status: 'Received over 23 prizes',
         image: '02',
     },
 ]
@@ -168,31 +168,31 @@ const prizesItems = [
 const myPrizes = [
     {
         value: 60,
-        discount: 'со скидкой 90%',
+        discount: 'at a 90% discount',
         image: 'sm',
         isActive: false,
-        buttonText: 'Потрачено',
+        buttonText: 'Expended',
     },
     {
         value: 8100,
-        discount: 'со скидкой 50%',
+        discount: 'at a 50% discount',
         image: 'xl',
         isActive: false,
-        buttonText: 'Неактивно',
+        buttonText: 'Inactive',
     },
     {
         value: 365,
-        discount: 'со скидкой 30%',
+        discount: 'at a 30% discount',
         image: 'md',
         isActive: false,
-        buttonText: 'Потрачено',
+        buttonText: 'Expended',
     },
     {
         value: 1800,
-        discount: 'со скидкой 90%',
+        discount: 'at a 90% discount',
         image: 'lg',
         isActive: false,
-        buttonText: 'Неактивно',
+        buttonText: 'Inactive',
     },
 ]
 
@@ -200,40 +200,40 @@ const myPrizes = [
 <Layout title="Out" bodyClass="out--gradient">
     <div class="out__container container">
         <Promo
-            title="Акция завершена&nbsp;&mdash; спасибо за&nbsp;участие!"
-            text="Участники выбили более 10&nbsp;000&nbsp;скидок.<br> Новый розыгрыш&nbsp;&mdash; совсем скоро"
-            buttonText="Подписаться на новости"
-            prizeButtonText="Призы"
+            title="The giveaway is over.<br> Thanks for participating!"
+            text="Participants have scored over 10&nbsp;000&nbsp;discounts.<br> New giveaway&nbsp;&mdash; dropping soon."
+            buttonText="Subscribe for more news"
+            prizeButtonText="Awards"
         ></Promo>
         <Already
-            title="Сколько скидок раздали<br> с&nbsp;<strong>17</strong>&nbsp;сентября по&nbsp;<strong>17</strong>&nbsp;октября"
-            resultTitle="Сколько участников получили классные скидки на&nbsp;UC"
+            title="How many discounts were given away<br> from September 17&nbsp;to&nbsp;October&nbsp;17"
+            resultTitle="How many participants got their awesome discounts on&nbsp;gems and passes"
             resultValue="1 234 301"
             prizes={alreadyPrizes}
-            unit="чел."
+            unit=""
             isFinish={true}
         ></Already>
         <Participants
-            title="Топовые участники"
+            title="Top participants"
             items={participants}
         ></Participants>
         <FinishFooter
-            title="Новый розыгрыш<br> совсем скоро!"
-            buttonText="Подписаться на розыгрыши"
+            title="New giveaway<br> dropping soon!"
+            buttonText="Subscribe for more giveaways"
         ></FinishFooter>
     </div>
 
 
     <Fragment slot="modals">
         <ModalPrizes
-            title="призы"
-            tabTitlePrizes="Можно выиграть"
-            tabTitleMyPrizes="Вы выиграли"
-            closeText="Закрыть"
+            title="awards"
+            tabTitlePrizes="You can win"
+            tabTitleMyPrizes="You won"
+            closeText="Close"
             items={prizesItems}
             myPrizes={myPrizes}
-            discountText="со скидкой"
-            emptyText="Вы&nbsp;пока ничего<br> не&nbsp;выиграли"
+            discountText="discount"
+            emptyText="You haven't won<br> anything yet"
         ></ModalPrizes>
     </Fragment>
 </Layout>

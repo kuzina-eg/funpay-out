@@ -115,34 +115,34 @@ const prizesItems = [
 ]
 
 const myPrizes = [
-    {
-        value: 60,
-        discount: 'со скидкой 90%',
-        image: 'sm',
-        isActive: true,
-        buttonText: 'Использовать',
-    },
-    {
-        value: 8100,
-        discount: 'со скидкой 50%',
-        image: 'xl',
-        isActive: true,
-        buttonText: 'Использовать',
-    },
-    {
-        value: 365,
-        discount: 'со скидкой 50%',
-        image: 'md',
-        isActive: false,
-        buttonText: 'Потрачено',
-    },
-    {
-        value: 1800,
-        discount: 'со скидкой 90%',
-        image: 'lg',
-        isActive: true,
-        buttonText: 'Использовать',
-    },
+//    {
+//        value: 60,
+//        discount: 'зі знижкою 90%',
+//        image: 'sm',
+//        isActive: true,
+//        buttonText: 'Застосувати',
+//    },
+//    {
+//        value: 8100,
+//        discount: 'зі знижкою 50%',
+//        image: 'xl',
+//        isActive: true,
+//        buttonText: 'Застосувати',
+//    },
+//    {
+//        value: 365,
+//        discount: 'зі знижкою 50%',
+//        image: 'md',
+//        isActive: false,
+//        buttonText: 'Застосувати',
+//    },
+//    {
+//        value: 1800,
+//        discount: 'зі знижкою 90%',
+//        image: 'lg',
+//        isActive: true,
+//        buttonText: 'Застосувати',
+//    },
 ]
 
 ---
@@ -150,30 +150,31 @@ const myPrizes = [
     <div class="out__container container">
         <Roulette
             items={items}
-            title="Вращайте барабан и&nbsp;забирай свой приз"
-            text="17&nbsp;сентября по&nbsp;1&nbsp;октября<br> выбивайте скидки на&nbsp;UC"
-            discountText="Скидка"
+            title="Крутіть барабан<br> й забирайте свій приз"
+            text="17&nbsp;вересня по&nbsp;1&nbsp;жовтня<br> вибивайте знижки на&nbsp;UC"
+            discountText="ЗНИЖКА"
             discountOn="на"
-            buttonText="Мне повезет"
-            textNextTry="До следующего трая"
-            linkText="Правила участия"
+            buttonText="Мені пощастить!"
+            textNextTry="До наступної спроби"
+            isButtonDisabled={true}
+            linkText="Правила участі"
             resultTitle="Ваш приз"
-            resultButtonText="Применить скидку"
-            textProbability="Вероятность получения"
-            prizeButtonText="Призы"
+            resultButtonText="Застосувати знижку"
+            textProbability="Ймовірність отримання"
+            prizeButtonText="Нагороди"
         ></Roulette>
     </div>
 
     <Fragment slot="modals">
         <ModalPrizes
-            title="призы"
-            tabTitlePrizes="Можно выиграть"
-            tabTitleMyPrizes="Вы выиграли"
+            title="Нагороди"
+            tabTitlePrizes="Ви можете виграти"
+            tabTitleMyPrizes="Ви виграли"
             closeText="Закрыть"
             items={prizesItems}
             myPrizes={myPrizes}
-            discountText="со скидкой"
-            emptyText="Вы&nbsp;пока ничего<br> не&nbsp;выиграли"
+            discountText=""
+            emptyText="Ви ще нічого<br> не виграли"
         ></ModalPrizes>
     </Fragment>
 </Layout>

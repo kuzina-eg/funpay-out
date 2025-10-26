@@ -16,6 +16,10 @@
     color: $color-base;
     position: relative;
 
+    @include media-min(pc) {
+        min-height: calc(var(--dvh, 1%) * 100 - 60px - 95px);
+    }
+
     &--gradient {
         &:before,
         &:after {
@@ -100,8 +104,28 @@
         transition: opacity .5s ease;
     }
 
+    .js-loader {
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 80px;
+        height: 80px;
+        transition: $duration opacity;
+
+        circle {
+            fill: rgba(33, 33, 33, .1);
+        }
+    }
+
     &.is-visible .out__container {
         opacity: 1;
+    }
+
+    &.is-visible .js-loader {
+        opacity: 0;
+        pointer-events: none;
+        z-index: -1;
     }
 }
 

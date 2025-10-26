@@ -1,0 +1,104 @@
+---
+import Layout from '@layouts/Layout.astro';
+import Picture from '@components/modules/Picture.astro';
+
+import Promo from '@components/sections/Promo.astro';
+import Already from '@components/sections/Already.astro';
+import Instructions from '@components/sections/Instructions.astro';
+
+const alreadyPrizes = [
+    {
+        image: 'xl',
+        prizeValue: 8100,
+        discount: 50,
+        text: 'received > 10&nbsp;people',
+    },
+    {
+        image: 'md',
+        prizeValue: 8100,
+        discount: 50,
+        text: 'received > 10&nbsp;people',
+    },
+    {
+        image: 'sm',
+        prizeValue: 365,
+        discount: 80,
+        text: 'received > 10&nbsp;people',
+    },
+]
+
+const alreadyWinners = [
+    {
+        image: 'lg',
+        prizeValue: 1800,
+        discount: 80,
+        name: 'Username',
+        date: '20 min ago',
+    },
+    {
+        image: 'lg',
+        prizeValue: 2000,
+        discount: 80,
+        name: 'Username',
+        date: '20 min ago',
+    },
+    {
+        image: 'md',
+        prizeValue: 1800,
+        discount: 80,
+        name: 'Username',
+        date: '20 min ago',
+    },
+    {
+        image: 'lg',
+        prizeValue: 1800,
+        discount: 50,
+        name: 'Username',
+        date: '20 min ago',
+    },
+]
+
+const instruction = [
+    {
+        title: 'Sign in',
+        text: 'Or&nbsp;register. From September 17&nbsp;to&nbsp;October&nbsp;1. Only FunPay users are eligible to&nbsp;take the shot at&nbsp;our discounts.',
+    },
+    {
+        title: 'Spin the wheel',
+        text: 'Press &laquo;Feeling lucky&raquo; and choose the discount. The system will choose one at&nbsp;random automatically. Come back for a&nbsp;new discount after 24&nbsp;hours.',
+    },
+    {
+        title: 'Claim the prize',
+        text: 'Get your discount from the profile page. It&nbsp;will appear right after you win&nbsp;it. Discounts are valid during the giveaway and for 3&nbsp;days afterward.',
+    },
+    {
+        title: 'Buy UC&nbsp;with your discount',
+        text: 'A&nbsp;UC&nbsp;pack eligible for the discount will be&nbsp;highlighted in&nbsp;your ticket. Press &laquo;Use&raquo;, get some sweet&nbsp;UC and come back for the new prize after 24&nbsp;hours!',
+    },
+]
+
+---
+<Layout title="Out" bodyClass="out--gradient">
+    <div class="out__container container">
+        <Promo
+            title="Get your discounts<br> up&nbsp;to&nbsp;90% on&nbsp;UC"
+            text="Gifts for new users: join<br> and get your discounts"
+            buttonText="Participate!"
+            rulesLink="Participation rules"
+        ></Promo>
+        <Already
+            title="Rewards dropped and&nbsp;still dropping!"
+            resultTitle="Prizes looted"
+            resultText="Dope discounts on&nbsp;UC are still free for the taking! Join and get you"
+            resultValue="00 000 001"
+            prizes={alreadyPrizes}
+            items={alreadyWinners}
+            unit="pc."
+        ></Already>
+        <Instructions
+            title="How to participate?"
+            items={instruction}
+            buttonText="Participate!"
+        ></Instructions>
+    </div>
+</Layout>

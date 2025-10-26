@@ -117,31 +117,31 @@ const prizesItems = [
 const myPrizes = [
     {
         value: 60,
-        discount: 'со скидкой 90%',
+        discount: 'at a 90% discount',
         image: 'sm',
         isActive: true,
-        buttonText: 'Использовать',
+        buttonText: 'Use',
     },
     {
         value: 8100,
-        discount: 'со скидкой 50%',
+        discount: 'at a 50% discount',
         image: 'xl',
         isActive: true,
-        buttonText: 'Использовать',
+        buttonText: 'Use',
     },
     {
         value: 365,
-        discount: 'со скидкой 50%',
+        discount: 'at a 90% discount',
         image: 'md',
         isActive: false,
-        buttonText: 'Потрачено',
+        buttonText: 'Expended',
     },
     {
         value: 1800,
-        discount: 'со скидкой 90%',
+        discount: 'at a 50% discount',
         image: 'lg',
         isActive: true,
-        buttonText: 'Использовать',
+        buttonText: 'Use',
     },
 ]
 
@@ -150,30 +150,30 @@ const myPrizes = [
     <div class="out__container container">
         <Roulette
             items={items}
-            title="Вращайте барабан и&nbsp;забирай свой приз"
-            text="17&nbsp;сентября по&nbsp;1&nbsp;октября<br> выбивайте скидки на&nbsp;UC"
-            discountText="Скидка"
-            discountOn="на"
-            buttonText="Мне повезет"
-            textNextTry="До следующего трая"
-            linkText="Правила участия"
-            resultTitle="Ваш приз"
-            resultButtonText="Применить скидку"
-            textProbability="Вероятность получения"
-            prizeButtonText="Призы"
+            title="Spin the wheel<br> and claim your prize"
+            text="From September 17&nbsp;to&nbsp;October 1<br> score your&nbsp;UC discounts."
+            discountText="DISCOUNT"
+            discountOn="on"
+            buttonText="Feeling lucky"
+            textNextTry="Until next attempt"
+            linkText="Participation rules"
+            resultTitle="Your prize is"
+            resultButtonText="Apply discount"
+            textProbability="Probability of receiving"
+            prizeButtonText="Awards"
         ></Roulette>
     </div>
 
     <Fragment slot="modals">
         <ModalPrizes
-            title="призы"
-            tabTitlePrizes="Можно выиграть"
-            tabTitleMyPrizes="Вы выиграли"
-            closeText="Закрыть"
+            title="awards"
+            tabTitlePrizes="You can win"
+            tabTitleMyPrizes="You won"
+            closeText="Close"
             items={prizesItems}
             myPrizes={myPrizes}
-            discountText="со скидкой"
-            emptyText="Вы&nbsp;пока ничего<br> не&nbsp;выиграли"
+            discountText="discount"
+            emptyText="You haven't won<br> anything yet"
         ></ModalPrizes>
     </Fragment>
 </Layout>

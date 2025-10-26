@@ -1,0 +1,104 @@
+---
+import Layout from '@layouts/Layout.astro';
+import Picture from '@components/modules/Picture.astro';
+
+import Promo from '@components/sections/Promo.astro';
+import Already from '@components/sections/Already.astro';
+import Instructions from '@components/sections/Instructions.astro';
+
+const alreadyPrizes = [
+    {
+        image: 'xl',
+        prizeValue: 8100,
+        discount: 50,
+        text: 'отримали 10 людей',
+    },
+    {
+        image: 'md',
+        prizeValue: 8100,
+        discount: 50,
+        text: 'отримали 10 людей',
+    },
+    {
+        image: 'sm',
+        prizeValue: 365,
+        discount: 80,
+        text: 'отримали 10 людей',
+    },
+]
+
+const alreadyWinners = [
+    {
+        image: 'lg',
+        prizeValue: 1800,
+        discount: 80,
+        name: 'Username',
+        date: '20 хв тому',
+    },
+    {
+        image: 'lg',
+        prizeValue: 2000,
+        discount: 80,
+        name: 'Username',
+        date: '20 хв тому',
+    },
+    {
+        image: 'md',
+        prizeValue: 1800,
+        discount: 80,
+        name: 'Username',
+        date: '20 хв тому',
+    },
+    {
+        image: 'lg',
+        prizeValue: 1800,
+        discount: 50,
+        name: 'Username',
+        date: '20 хв тому',
+    },
+]
+
+const instruction = [
+    {
+        title: 'Увійдіть в&nbsp;акаунт',
+        text: 'З&nbsp;17&nbsp;вересня по&nbsp;1&nbsp;жовтня забирайте знижки на&nbsp;UC можуть тільки користувачі FunPay.',
+    },
+    {
+        title: 'Запустіть барабан',
+        text: 'Натисніть &laquo;Мені пощастить&raquo; й&nbsp;оберіть собі знижку. Система обере її&nbsp;випадковим чином, автоматично. Повертайтесь за&nbsp;новою знижкою через 24&nbsp;години.',
+    },
+    {
+        title: 'Отримайте приз',
+        text: 'Заберіть свою знижку з&nbsp;профілю. Вона з&rsquo;явиться у&nbsp;ньому відразу після отримання. Вона буде активна протягом усієї акції й&nbsp;ще&nbsp;3&nbsp;дні після її&nbsp;завершення.',
+    },
+    {
+        title: 'Купіть UC&nbsp;зі&nbsp;знижкою',
+        text: 'Пак&nbsp;UC, на&nbsp;який діє вибита знижка, вказаний на&nbsp;самому квитку. Натисніть &laquo;Використати&raquo;, отримайте&nbsp;UC й&nbsp;повертайтесь за&nbsp;новим призом через 24&nbsp;години.',
+    },
+]
+
+---
+<Layout title="Out" bodyClass="out--gradient">
+    <div class="out__container container">
+        <Promo
+            title="Забирайте знижки<br> до 90% На UC"
+            text="Подарунки для нових користувачів: приєднуйтесь й&nbsp;вибивайте знижки"
+            buttonText="Беру участь!"
+            rulesLink="Правила участі"
+        ></Promo>
+        <Already
+            title="Уже видали й продовжуємо видавати"
+            resultTitle="Вибито призів"
+            resultText="Круті знижки на&nbsp;UC ще&nbsp;залишились. Приєднуйтесь й&nbsp;забирайте свою!"
+            resultValue="00 000 001"
+            prizes={alreadyPrizes}
+            items={alreadyWinners}
+            unit="шт."
+        ></Already>
+        <Instructions
+            title="Як взяти участь?"
+            items={instruction}
+            buttonText="Беру участь!"
+        ></Instructions>
+    </div>
+</Layout>

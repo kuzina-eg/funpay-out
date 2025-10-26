@@ -15,6 +15,7 @@ interface Props {
     resultTitle?: string;
     resultButtonText?: string;
     textProbability?: string;
+    isButtonDisabled?: boolean;
     class?: string;
     [x: string]: any;
 }
@@ -32,6 +33,7 @@ const {
     resultTitle,
     resultButtonText,
     textProbability,
+    isButtonDisabled = false,
     class: className,
     ...rest
 } = Astro.props;
@@ -63,7 +65,7 @@ const {
                                 </defs>
                                 <g font-size="45px">
                                     <text text-anchor="start" class="slice__text">
-                                        { item.value.length === 1 ? <textPath xlink:href=`#textPath1_${index}` startOffset="22%">{item.value} UC</textPath> : ''}
+                                        { item.value.length === 1 ? <textPath xlink:href=`#textPath1_${index}` startOffset="22.5%">{item.value} UC</textPath> : ''}
                                         { item.value.length === 2 ? <textPath xlink:href=`#textPath1_${index}` startOffset="21.5%">{item.value} UC</textPath> : ''}
                                         { item.value.length === 3 ? <textPath xlink:href=`#textPath1_${index}` startOffset="21%">{item.value} UC</textPath> : ''}
                                         { item.value.length === 4 ? <textPath xlink:href=`#textPath1_${index}` startOffset="20.5%">{item.value} UC</textPath> : ''}
@@ -93,7 +95,38 @@ const {
             <div class="out-roulette__title title-custom" set:html={title}></div>
         </div>
         <div class="out-roulette__content-footer out-roulette__footer">
-            <Button class="out-roulette__button js-start-play" size="lg" center="true" style="second" data-next={textNextTry} data-new={buttonText}>{buttonText}</Button>
+            { isButtonDisabled ?
+                <Button class="out-roulette__button js-start-play js-countdown" size="lg" center="true" style="second" disabled data-next={textNextTry} data-new={buttonText}>
+                    <svg class="loader" x="0" y="0" viewBox="0 0 100 100" width="100" height="100">
+                        <circle stroke="none" cx="30" cy="50" r="6">
+                            <animate
+                                attributeName="opacity"
+                                dur="1s"
+                                values="0;1;0"
+                                repeatCount="indefinite"
+                                begin="0.1"/>
+                        </circle>
+                        <circle stroke="none" cx="50" cy="50" r="6">
+                            <animate
+                                attributeName="opacity"
+                                dur="1s"
+                                values="0;1;0"
+                                repeatCount="indefinite"
+                                begin="0.2"/>
+                        </circle>
+                        <circle stroke="none" cx="70" cy="50" r="6">
+                            <animate
+                                attributeName="opacity"
+                                dur="1s"
+                                values="0;1;0"
+                                repeatCount="indefinite"
+                                begin="0.3"/>
+                        </circle>
+                    </svg>
+                </Button>
+                :
+                <Button class="out-roulette__button js-start-play" size="lg" center="true" style="second" data-next={textNextTry} data-new={buttonText}>{buttonText}</Button>
+            }
             <a href="#" class="out-roulette__link u-hidden-mobile">{linkText}</a>
         </div>
 
@@ -123,7 +156,7 @@ const {
 
             <div class="out-roulette__modal-result title-custom">
                 <div>{discountText} <span class="result-discount">50</span>%</div>
-                <div>{discountOn} <span class="result-value">8100</span> UC</div>
+                <div><span class="out-roulette__modal-on">{discountOn}</span> <span class="result-value">8100</span> UC</div>
             </div>
 
             <div class="out-roulette__modal-probability">{textProbability} <span class="result-probability"></span>%</div>

@@ -100,16 +100,18 @@ export default function roulette() {
             rouletteContainer.classList.add('a-start-play');
             document.getElementById('slice' + prizeNum).classList.add('is-active');
 
+            // включаем анимацию
+            const animation = lottie.loadAnimation({
+                container: document.getElementById('lottie-animation'), // контейнер для анимации
+                renderer: 'svg', // тип рендерера (может быть 'svg', 'canvas' или 'html')
+                loop: true, // зацикливание анимации
+                autoplay: true, // автоматический запуск анимации
+                path: 'img/out/roulette/speed2.json' // путь к JSON-файлу с анимацией
+            });
+
             // показываем модальное окно
             setTimeout(() => {
                 rouletteContainer.classList.add('a-show-modal');
-                const animation = lottie.loadAnimation({
-                    container: document.getElementById('lottie-animation'), // контейнер для анимации
-                    renderer: 'svg', // тип рендерера (может быть 'svg', 'canvas' или 'html')
-                    loop: true, // зацикливание анимации
-                    autoplay: true, // автоматический запуск анимации
-                    path: 'img/out/roulette/speed2.json' // путь к JSON-файлу с анимацией
-                });
             }, 8000);
         });
 

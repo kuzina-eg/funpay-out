@@ -180,7 +180,17 @@
                         <div class="out-roulette__text">17 сентября по 1 октября<br> выбивайте скидки на UC</div>
                         <div class="out-roulette__title title-custom">Вращайте барабан и забирай свой приз</div>
                     </div>
-                    <div class="out-roulette__content-footer out-roulette__footer"> <button type="button" data-next="До следующего трая" data-new="Мне повезет" class="ui-button ui-button--second ui-button--lg ui-button--center out-roulette__button js-start-play"><span class="ui-button__text"> Мне повезет </span></button> <a href="#" class="out-roulette__link u-hidden-mobile">Правила участия</a> </div>
+                    <div class="out-roulette__content-footer out-roulette__footer"> <button type="button" disabled data-next="До следующего трая" data-new="Мне повезет" class="ui-button ui-button--second ui-button--lg ui-button--center out-roulette__button js-start-play js-countdown"><span class="ui-button__text"> <svg class="loader" x="0" y="0" viewBox="0 0 100 100" width="100" height="100">
+                                    <circle stroke="none" cx="30" cy="50" r="6">
+                                        <animate attributeName="opacity" dur="1s" values="0;1;0" repeatCount="indefinite" begin="0.1"></animate>
+                                    </circle>
+                                    <circle stroke="none" cx="50" cy="50" r="6">
+                                        <animate attributeName="opacity" dur="1s" values="0;1;0" repeatCount="indefinite" begin="0.2"></animate>
+                                    </circle>
+                                    <circle stroke="none" cx="70" cy="50" r="6">
+                                        <animate attributeName="opacity" dur="1s" values="0;1;0" repeatCount="indefinite" begin="0.3"></animate>
+                                    </circle>
+                                </svg> </span></button> <a href="#" class="out-roulette__link u-hidden-mobile">Правила участия</a> </div>
                     <div class="out-roulette__show-prizes"> <button type="button" data-modal-open="#modal-prizes" class="ui-button ui-button--second"><span class="ui-button__icon"> <svg class="ui-icon ui-icon-gift">
                                     <use xlink:href="img/out/icons.svg#gift"></use>
                                 </svg> </span><span class="ui-button__text"> Призы </span><span class="ui-button__amount amount">1</span></button> </div>
@@ -227,56 +237,7 @@
                             </div>
                             <div class="tabs__panes js-tabs-content">
                                 <div class="tabs__pane js-tabs-pane custom-scroll is-active" data-tabs-pane="tab_01">
-                                    <div class="modal-prizes__my-prizes">
-                                        <div class="item-my-prize">
-                                            <div class="item-my-prize__photo">
-                                                <picture>
-                                                    <source type="image/webp" srcset="img/out/prizes/sm@1x.webp 1x, img/out/prizes/sm@2x.webp 2x"> <img class="item-my-prize__image" src="img/out/prizes/sm@1x.png" srcset="img/out/prizes/sm@2x.png 2x" alt="" width="57" height="38" loading="lazy">
-                                                </picture>
-                                            </div>
-                                            <div class="item-my-prize__detail">
-                                                <div class="item-my-prize__value title-custom">60 uc</div>
-                                                <div class="item-my-prize__discount title-custom">со скидкой 90%</div>
-                                            </div>
-                                            <div class="item-my-prize__button"> <button type="button" class="ui-button ui-button--second"><span class="ui-button__text"> Использовать </span></button> </div>
-                                        </div>
-                                        <div class="item-my-prize">
-                                            <div class="item-my-prize__photo">
-                                                <picture>
-                                                    <source type="image/webp" srcset="img/out/prizes/xl@1x.webp 1x, img/out/prizes/xl@2x.webp 2x"> <img class="item-my-prize__image" src="img/out/prizes/xl@1x.png" srcset="img/out/prizes/xl@2x.png 2x" alt="" width="57" height="38" loading="lazy">
-                                                </picture>
-                                            </div>
-                                            <div class="item-my-prize__detail">
-                                                <div class="item-my-prize__value title-custom">8100 uc</div>
-                                                <div class="item-my-prize__discount title-custom">со скидкой 50%</div>
-                                            </div>
-                                            <div class="item-my-prize__button"> <button type="button" class="ui-button ui-button--second"><span class="ui-button__text"> Использовать </span></button> </div>
-                                        </div>
-                                        <div class="item-my-prize">
-                                            <div class="item-my-prize__photo">
-                                                <picture>
-                                                    <source type="image/webp" srcset="img/out/prizes/md@1x.webp 1x, img/out/prizes/md@2x.webp 2x"> <img class="item-my-prize__image" src="img/out/prizes/md@1x.png" srcset="img/out/prizes/md@2x.png 2x" alt="" width="57" height="38" loading="lazy">
-                                                </picture>
-                                            </div>
-                                            <div class="item-my-prize__detail">
-                                                <div class="item-my-prize__value title-custom">365 uc</div>
-                                                <div class="item-my-prize__discount title-custom">со скидкой 50%</div>
-                                            </div>
-                                            <div class="item-my-prize__button"> <button type="button" disabled class="ui-button ui-button--second"><span class="ui-button__text"> Потрачено </span></button> </div>
-                                        </div>
-                                        <div class="item-my-prize">
-                                            <div class="item-my-prize__photo">
-                                                <picture>
-                                                    <source type="image/webp" srcset="img/out/prizes/lg@1x.webp 1x, img/out/prizes/lg@2x.webp 2x"> <img class="item-my-prize__image" src="img/out/prizes/lg@1x.png" srcset="img/out/prizes/lg@2x.png 2x" alt="" width="57" height="38" loading="lazy">
-                                                </picture>
-                                            </div>
-                                            <div class="item-my-prize__detail">
-                                                <div class="item-my-prize__value title-custom">1800 uc</div>
-                                                <div class="item-my-prize__discount title-custom">со скидкой 90%</div>
-                                            </div>
-                                            <div class="item-my-prize__button"> <button type="button" class="ui-button ui-button--second"><span class="ui-button__text"> Использовать </span></button> </div>
-                                        </div>
-                                    </div>
+                                    <div class="modal-prizes__empty title-custom">Вы пока ничего<br> не выиграли</div>
                                 </div>
                                 <div class="tabs__pane js-tabs-pane custom-scroll" data-tabs-pane="tab_02">
                                     <div class="modal-prizes__prizes">
