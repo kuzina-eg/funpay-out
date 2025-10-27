@@ -76,6 +76,12 @@
             "link": "finish-ua.html",
             "status": "",
             "disabled": false
+        },
+        {
+            "name": "Рулетка. Картинка вместо анимации",
+            "link": "roulette-bg.html",
+            "status": "",
+            "disabled": false
         }
     ]
 }

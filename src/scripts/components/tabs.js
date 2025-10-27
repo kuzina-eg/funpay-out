@@ -232,18 +232,5 @@ export default function setTabs(tabsContainer) {
                 tabsInit();
             }
         });
-
-        const loginLink = document.querySelector('.js-login-link');
-        if (loginLink) {
-            const tabsGroup = loginLink.closest('.js-tabs');
-            loginLink.addEventListener('click', (e) => {
-                let activeTabId = tabsGroup.querySelector('.js-tabs-pane.is-active').getAttribute('data-tabs-pane');
-                let activeTab = tabsGroup.querySelectorAll('.js-tabs-item[data-tabs-id="' + activeTabId + '"]');
-                activeTab.forEach((tab) => {
-                    tab.classList.add('is-active');
-                });
-                e.preventDefault();
-            });
-        }
     }
 }
