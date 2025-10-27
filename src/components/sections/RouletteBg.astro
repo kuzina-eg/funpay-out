@@ -1,0 +1,174 @@
+---
+import Button from '@components/modules/Button.astro';
+import Picture from '@components/modules/Picture.astro';
+
+interface Props {
+    title?: string;
+    text?: string;
+    discountText?: string;
+    discountOn?: string;
+    buttonText?: string;
+    textNextTry?: string;
+    linkText?: string;
+    prizeButtonText?: string;
+    items?: Array<string>;
+    resultTitle?: string;
+    resultButtonText?: string;
+    textProbability?: string;
+    isButtonDisabled?: boolean;
+    class?: string;
+    [x: string]: any;
+}
+
+const {
+    title,
+    text,
+    discountText,
+    discountOn,
+    buttonText,
+    textNextTry,
+    linkText,
+    prizeButtonText,
+    items = [],
+    resultTitle,
+    resultButtonText,
+    textProbability,
+    isButtonDisabled = false,
+    class: className,
+    ...rest
+} = Astro.props;
+
+---
+
+<div class="out-roulette">
+    <div class="out-roulette__logo">
+        <Picture
+            class="out-roulette__logo-image"
+            name="logo"
+            directory="img/out/roulette/"
+            type="png"
+            imageWidth="68"
+            imageHeight="56"
+            forMobile={false}
+        ></Picture>
+    </div>
+    <div class="out-roulette__box">
+        <div class="out-roulette__wheel-container">
+            <div class="out-roulette__wheel-transform">
+                <div class="out-roulette__wheel-rotation a-rotation roulette">
+                    {items.map((item, index) => (
+                        <div class=`slice ${item.class}` id=`slice${(index+1)}` data-size={item.image} data-value={item.value} data-discount={item.discount}>
+                            <svg width="385" height="305" viewBox="0 0 385 305" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <path id=`textPath1_${index}` d="M-77 -48C-77 23.6085 -48.5537 92.284 2.08117 142.919C52.716 193.554 121.392 222 193 222C264.608 222 333.284 193.554 383.919 142.919C434.554 92.284 463 23.6085 463 -48C463 -119.608 434.554 -188.284 383.919 -238.919C333.284 -289.554 264.608 -318 193 -318C121.392 -318 52.716 -289.554 2.08117 -238.919C-48.5537 -188.284 -77 -119.608 -77 -48Z" fill="#FF0000"/>
+                                    <path id=`textPath2_${index}` d="M-77 1C-77 72.6085 -48.5537 141.284 2.08117 191.919C52.716 242.554 121.392 271 193 271C264.608 271 333.284 242.554 383.919 191.919C434.554 141.284 463 72.6085 463 1C463 -70.6085 434.554 -139.284 383.919 -189.919C333.284 -240.554 264.608 -269 193 -269C121.392 -269 52.716 -240.554 2.08117 -189.919C-48.5537 -139.284 -77 -70.6085 -77 1Z" fill="#FF0000"/>
+                                </defs>
+                                <g font-size="45px">
+                                    <text text-anchor="start" class="slice__text">
+                                        { item.value.length === 1 ? <textPath xlink:href=`#textPath1_${index}` startOffset="22.5%">{item.value} UC</textPath> : ''}
+                                        { item.value.length === 2 ? <textPath xlink:href=`#textPath1_${index}` startOffset="21.5%">{item.value} UC</textPath> : ''}
+                                        { item.value.length === 3 ? <textPath xlink:href=`#textPath1_${index}` startOffset="21%">{item.value} UC</textPath> : ''}
+                                        { item.value.length === 4 ? <textPath xlink:href=`#textPath1_${index}` startOffset="20.5%">{item.value} UC</textPath> : ''}
+                                        <textPath xlink:href=`#textPath2_${index}` startOffset="18.5%">{discountText} {item.discount}%</textPath>
+                                    </text>
+                                </g>
+                            </svg>
+                            <div class="slice__photo">
+                                <Picture
+                                    class="slice__image"
+                                    name={item.image}
+                                    directory="img/out/prizes/"
+                                    type="png"
+                                    imageWidth="201"
+                                    imageHeight="134"
+                                    forMobile={false}
+                                ></Picture>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
+
+        <div class="out-roulette__content">
+            <div class="out-roulette__text" set:html={text}></div>
+            <div class="out-roulette__title title-custom" set:html={title}></div>
+        </div>
+        <div class="out-roulette__content-footer out-roulette__footer">
+            { isButtonDisabled ?
+                <Button class="out-roulette__button js-start-play js-countdown" size="lg" center="true" style="second" disabled data-next={textNextTry} data-new={buttonText}>
+                    <svg class="loader" x="0" y="0" viewBox="0 0 100 100" width="100" height="100">
+                        <circle stroke="none" cx="30" cy="50" r="6">
+                            <animate
+                                attributeName="opacity"
+                                dur="1s"
+                                values="0;1;0"
+                                repeatCount="indefinite"
+                                begin="0.1"/>
+                        </circle>
+                        <circle stroke="none" cx="50" cy="50" r="6">
+                            <animate
+                                attributeName="opacity"
+                                dur="1s"
+                                values="0;1;0"
+                                repeatCount="indefinite"
+                                begin="0.2"/>
+                        </circle>
+                        <circle stroke="none" cx="70" cy="50" r="6">
+                            <animate
+                                attributeName="opacity"
+                                dur="1s"
+                                values="0;1;0"
+                                repeatCount="indefinite"
+                                begin="0.3"/>
+                        </circle>
+                    </svg>
+                </Button>
+                :
+                <Button class="out-roulette__button js-start-play" size="lg" center="true" style="second" data-next={textNextTry} data-new={buttonText}>{buttonText}</Button>
+            }
+            <a href="#" class="out-roulette__link u-hidden-mobile">{linkText}</a>
+        </div>
+
+        <div class="out-roulette__show-prizes">
+            <Button style="second" icon="gift" amount="1" data-modal-open="#modal-prizes">{prizeButtonText}</Button>
+        </div>
+
+        <div class="out-roulette__modal">
+            <div class="out-roulette__modal-animation out-roulette__modal-animation--bg">
+                <div class="out-roulette__light"></div>
+            </div>
+            <Button style="link" class="out-roulette__modal-close js-close-roulette-modal" icon="close" isText={false}></Button>
+            <div class="out-roulette__modal-title">{resultTitle}</div>
+            <div class="out-roulette__modal-photo-container">
+                <div class="out-roulette__modal-photo">
+                    <div class="out-roulette__modal-photo-transform">
+                        <Picture
+                            class="slice__image out-roulette__modal-image"
+                            name="sm"
+                            directory="img/out/prizes/"
+                            type="png"
+                            imageWidth="201"
+                            imageHeight="134"
+                            forMobile={false}
+                        ></Picture>
+                    </div>
+                </div>
+            </div>
+
+            <div class="out-roulette__modal-result title-custom">
+                <div>{discountText} <span class="result-discount">50</span>%</div>
+                <div><span class="out-roulette__modal-on">{discountOn}</span> <span class="result-value">8100</span> UC</div>
+            </div>
+
+            <div class="out-roulette__modal-probability">{textProbability} <span class="result-probability"></span>%</div>
+
+            <div class="out-roulette__modal-footer out-roulette__footer">
+                <Button class="out-roulette__button" size="lg" center="true" style="second">{resultButtonText}</Button>
+                <a href="#" class="out-roulette__link u-hidden-mobile">{linkText}</a>
+            </div>
+
+        </div>
+    </div>
+    <div class="out-roulette__link-mobile u-visible-mobile text-center"><a href="#">{linkText}</a></div>
+</div>

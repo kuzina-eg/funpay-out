@@ -101,13 +101,16 @@ export default function roulette() {
             document.getElementById('slice' + prizeNum).classList.add('is-active');
 
             // включаем анимацию
-            const animation = lottie.loadAnimation({
-                container: document.getElementById('lottie-animation'), // контейнер для анимации
-                renderer: 'svg', // тип рендерера (может быть 'svg', 'canvas' или 'html')
-                loop: true, // зацикливание анимации
-                autoplay: true, // автоматический запуск анимации
-                path: 'img/out/roulette/speed2.json' // путь к JSON-файлу с анимацией
-            });
+            const animationContainer = document.getElementById('lottie-animation');
+            if (animationContainer) {
+                const animation = lottie.loadAnimation({
+                    container: animationContainer, // контейнер для анимации
+                    renderer: 'svg', // тип рендерера (может быть 'svg', 'canvas' или 'html')
+                    loop: true, // зацикливание анимации
+                    autoplay: true, // автоматический запуск анимации
+                    path: 'img/out/roulette/speed2.json' // путь к JSON-файлу с анимацией
+                });
+            }
 
             // показываем модальное окно
             setTimeout(() => {
