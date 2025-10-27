@@ -184,6 +184,10 @@
                 fill: currentColor;
             }
         }
+
+        @include media(mob) {
+            height: $button-height;
+        }
     }
 
     &__link {
@@ -534,6 +538,13 @@
 .a-show-modal {
     .is-active .slice__photo {
         opacity: 0;
+
+        @include media(mob) {
+            opacity: 1;
+            animation: fadeOut .3s linear;
+            animation-delay: .1s;
+            animation-fill-mode: forwards;
+        }
     }
 
     .out-roulette__logo {
@@ -582,6 +593,11 @@
         animation: lightRotate 20s linear infinite;
     }
 
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
 }
 
 @keyframes lightRotate {
