@@ -2,7 +2,7 @@
 import Layout from '@layouts/Layout.astro';
 import Picture from '@components/modules/Picture.astro';
 
-import Roulette from '@components/sections/Roulette.astro';
+import RouletteBg from '@components/sections/RouletteBg.astro';
 import ModalPrizes from '@components/modals/ModalPrizes.astro';
 
 const items = [
@@ -148,7 +148,7 @@ const myPrizes = [
 ---
 <Layout title="Out Колесо фортуны">
     <div class="out__container container">
-        <Roulette
+        <RouletteBg
             items={items}
             title="Крутіть барабан<br> й забирайте свій приз"
             text="17&nbsp;вересня по&nbsp;1&nbsp;жовтня<br> вибивайте знижки на&nbsp;UC"
@@ -162,7 +162,7 @@ const myPrizes = [
             resultButtonText="Застосувати знижку"
             textProbability="Ймовірність отримання"
             prizeButtonText="Нагороди"
-        ></Roulette>
+        ></RouletteBg>
     </div>
 
     <Fragment slot="modals">
