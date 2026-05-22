@@ -8,21 +8,21 @@ import Instructions from '@components/sections/Instructions.astro';
 
 const alreadyPrizes = [
     {
-        image: 'xl',
-        prizeValue: 8100,
+        image: 'lg',
+        prizeValue: 1800,
         discount: 50,
         text: 'Получили > 10&nbsp;чел.',
     },
     {
-        image: 'md',
-        prizeValue: 8100,
-        discount: 50,
+        image: 'lg',
+        prizeValue: 1800,
+        discount: 30,
         text: 'Получили > 10&nbsp;чел.',
     },
     {
-        image: 'sm',
+        image: 'lg',
         prizeValue: 365,
-        discount: 80,
+        discount: 50,
         text: 'Получили > 10&nbsp;чел.',
     },
 ]
@@ -31,21 +31,21 @@ const alreadyWinners = [
     {
         image: 'lg',
         prizeValue: 1800,
-        discount: 80,
-        name: 'Имя пользователя',
-        date: '20 минут назад',
-    },
-    {
-        image: 'lg',
-        prizeValue: 2000,
-        discount: 80,
+        discount: 50,
         name: 'Имя пользователя',
         date: '20 минут назад',
     },
     {
         image: 'md',
+        prizeValue: 120,
+        discount: 50,
+        name: 'Имя пользователя',
+        date: '20 минут назад',
+    },
+    {
+        image: 'lg',
         prizeValue: 1800,
-        discount: 80,
+        discount: 50,
         name: 'Имя пользователя',
         date: '20 минут назад',
     },
@@ -60,20 +60,20 @@ const alreadyWinners = [
 
 const instruction = [
     {
-        title: 'Войдите в&nbsp;аккаунт',
-        text: 'С&nbsp;1&nbsp;июня по&nbsp;7&nbsp;июня собирайте скидки на&nbsp;UC могут только пользователи FunPay.',
+        title: 'Сколько будет длиться акция?',
+        text: 'С&nbsp;1 по&nbsp;7 июня 2026&nbsp;года.',
     },
     {
-        title: 'Запустите барабан',
-        text: 'Нажмите &laquo;Мне повезёт&raquo; и&nbsp;выбейте себе скидку. Система выберет её&nbsp;случайным образом, автоматически. Возвращайтесь за&nbsp;новой скидкой через 24&nbsp;часа.',
+        title: 'Как участвовать?',
+        text: 'Войдите в&nbsp;аккаунт, пройдите регистрацию в&nbsp;акции, нажмите кнопку &laquo;Участвую!&raquo;, вращайте барабан, получайте скидки, оформляйте заказы со&nbsp;скидкой.',
     },
     {
-        title: 'Получите приз',
-        text: 'Заберите свою скидку из&nbsp;профиля. Она появится в&nbsp;нём сразу после получения. И&nbsp;будет активна в&nbsp;течение всей акции.',
+        title: 'Что делать, если я&nbsp;не&nbsp;хочу использовать скидку сразу?',
+        text: 'Скидка будет доступна во&nbsp;вкладке &laquo;Призы&raquo; в&nbsp;правом нижнем углу барабана, вы&nbsp;можете воспользоваться ей&nbsp;позже.',
     },
     {
-        title: 'Купите UC&nbsp;со&nbsp;скидкой',
-        text: 'Пак&nbsp;UC, на&nbsp;который действует выбитая скидка, указан на&nbsp;самом билете. Нажмите &laquo;Использовать&raquo;, получите&nbsp;UC и&nbsp;возвращайтесь за&nbsp;новым призом через 24&nbsp;часа.',
+        title: 'Как долго хранятся призы?',
+        text: 'Скидки можно использовать только во&nbsp;время действия самой акции.',
     },
 ]
 
@@ -81,8 +81,9 @@ const instruction = [
 <Layout title="Out" bodyClass="out--gradient">
     <div class="out__container container">
         <Promo
+            id="promo"
             title="Забирайте скидки<br> до&nbsp;90% На&nbsp;UC"
-            text="Подарки для новых пользователей:<br> присоединяйся и&nbsp;выбивай скидки"
+            text="Подарки для всех:<br> присоединяйся и&nbsp;выбивай скидки"
             buttonText="Участвую!"
             rulesLink="Правила участия"
         ></Promo>
@@ -96,9 +97,10 @@ const instruction = [
             unit="шт."
         ></Already>
         <Instructions
-            title="Как участвовать?"
+            title="FAQ"
             items={instruction}
             buttonText="Погнали!"
+            buttonHref="#promo"
         ></Instructions>
     </div>
 </Layout>

@@ -127,7 +127,7 @@ const {
                 :
                 <Button class="out-roulette__button js-start-play" size="lg" center="true" style="second" data-next={textNextTry} data-new={buttonText}>{buttonText}</Button>
             }
-            <a href="#" class="out-roulette__link u-hidden-mobile">{linkText}</a>
+            <a href="#" class="out-roulette__link u-hidden-mobile" target="_blank">{linkText}</a>
         </div>
 
         <div class="out-roulette__show-prizes">
@@ -159,11 +159,11 @@ const {
                 <div><span class="out-roulette__modal-on">{discountOn}</span> <span class="result-value">8100</span> UC</div>
             </div>
 
-            <div class="out-roulette__modal-probability">{textProbability} <span class="result-probability"></span>%</div>
+            {/* <div class="out-roulette__modal-probability">{textProbability} <span class="result-probability"></span>%</div> */}
 
             <div class="out-roulette__modal-footer out-roulette__footer">
                 <Button class="out-roulette__button" size="lg" center="true" style="second">{resultButtonText}</Button>
-                <a href="#" class="out-roulette__link u-hidden-mobile">{linkText}</a>
+                <a href="#" class="out-roulette__link u-hidden-mobile" target="_blank">{linkText}</a>
             </div>
 
         </div>

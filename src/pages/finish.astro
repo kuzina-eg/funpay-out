@@ -10,33 +10,33 @@ import ModalPrizes from '@components/modals/ModalPrizes.astro';
 
 const alreadyPrizes = [
     {
-        image: 'xl',
-        prizeValue: 8100,
+        image: 'lg',
+        prizeValue: 1800,
         text: 'Раздали > 300&nbsp;000&nbsp;шт.',
     },
     {
-        image: 'md',
-        prizeValue: 8100,
-        text: 'Раздали > 300&nbsp;000&nbsp;шт.',
-    },
-    {
-        image: 'sm',
+        image: 'lg',
         prizeValue: 365,
         text: 'Раздали > 300&nbsp;000&nbsp;шт.',
     },
     {
-        image: 'xl',
-        prizeValue: 8100,
+        image: 'md',
+        prizeValue: 120,
+        text: 'Раздали > 300&nbsp;000&nbsp;шт.',
+    },
+    {
+        image: 'lg',
+        prizeValue: 1800,
+        text: 'Раздали > 300&nbsp;000&nbsp;шт.',
+    },
+    {
+        image: 'lg',
+        prizeValue: 365,
         text: 'Раздали > 300&nbsp;000&nbsp;шт.',
     },
     {
         image: 'md',
-        prizeValue: 8100,
-        text: 'Раздали > 300&nbsp;000&nbsp;шт.',
-    },
-    {
-        image: 'sm',
-        prizeValue: 365,
+        prizeValue: 120,
         text: 'Раздали > 300&nbsp;000&nbsp;шт.',
     },
 ]
@@ -108,59 +108,44 @@ const participants = [
 
 const prizesItems = [
     {
-        value: 60,
-        discount: 90,
-        image: 'sm',
-    },
-    {
-        value: 60,
-        discount: 80,
-        image: 'sm',
-    },
-    {
-        value: 60,
-        discount: 50,
-        image: 'sm',
-    },
-    {
-        value: 60,
-        discount: 30,
-        image: 'sm',
-    },
-    {
-        value: 120,
-        discount: 80,
-        image: 'md',
-    },
-    {
-        value: 120,
-        discount: 50,
-        image: 'md',
-    },
-    {
-        value: 120,
-        discount: 30,
-        image: 'md',
-    },
-    {
-        value: 365,
-        discount: 50,
+        value: '365',
+        discount: '50',
         image: 'lg',
     },
     {
-        value: 365,
-        discount: 30,
+        value: '120',
+        discount: '50',
+        image: 'md',
+    },
+    {
+        value: '60',
+        discount: '50',
+        image: 'sm',
+    },
+    {
+        value: '60',
+        discount: '90',
+        image: 'sm',
+    },
+    {
+        value: '365',
+        discount: '30',
         image: 'lg',
     },
     {
-        value: 1800,
-        discount: 50,
-        image: 'xl',
+        value: '1800',
+        discount: '30',
+        image: 'lg',
     },
     {
-        value: 8100,
-        discount: 30,
-        image: 'xl',
+        value: '120',
+        discount: '80',
+        image: 'md',
+    },
+    {
+        value: '1800',
+        discount: '50',
+        image: 'lg',
     },
 ]
 
@@ -174,9 +159,9 @@ const myPrizes = [
         buttonText: 'Потрачено',
     },
     {
-        value: 8100,
+        value: 1800,
         discount: 'со скидкой 50%',
-        image: 'xl',
+        image: 'lg',
         isActive: false,
         buttonText: 'Неактивно',
     },
@@ -189,7 +174,7 @@ const myPrizes = [
     },
     {
         value: 1800,
-        discount: 'со скидкой 90%',
+        discount: 'со скидкой 30%',
         image: 'lg',
         isActive: false,
         buttonText: 'Неактивно',
@@ -206,7 +191,7 @@ const myPrizes = [
             prizeButtonText="Призы"
         ></Promo>
         <Already
-            title="Сколько скидок раздали<br> с&nbsp;<strong>17</strong>&nbsp;сентября по&nbsp;<strong>17</strong>&nbsp;октября"
+            title="Сколько скидок раздали<br> с&nbsp;<strong>1</strong> по&nbsp;<strong>7</strong>&nbsp;июня"
             resultTitle="Сколько участников получили классные скидки на&nbsp;UC"
             resultValue="1 234 301"
             prizes={alreadyPrizes}

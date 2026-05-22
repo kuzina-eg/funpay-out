@@ -6,6 +6,7 @@ interface Props {
     items?: Array<string>;
     title?: string;
     buttonText?: string;
+    buttonHref?: string;
     class?: string;
     [x: string]: any;
 }
@@ -14,6 +15,7 @@ const {
     items = [],
     title,
     buttonText,
+    buttonHref = 'roulette.html',
     class: className,
     ...rest
 } = Astro.props;
@@ -60,7 +62,7 @@ const {
                 </div>
             ))}
         </div>
-        <Button class="out-instructions__button" type="link" href="roulette.html" center="true" size="lg">{buttonText}</Button>
+        <Button class="out-instructions__button" type="link" href={buttonHref} center="true" size="lg">{buttonText}</Button>
     </div>
 
     <div class="out-instructions__photo-center">

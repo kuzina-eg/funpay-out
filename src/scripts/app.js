@@ -7,6 +7,7 @@ import { modal } from './components/modal.js';
 import setTabs from './components/tabs';
 import roulette from './components/roulette';
 import countDown from './components/countDown';
+import smoothScroll from './components/smoothScroll';
 
 /* Initialization common scripts ********** */
 setVariables();
@@ -17,3 +18,4 @@ modal.init();
 setTabs();
 roulette();
 countDown();
+smoothScroll();

@@ -37,7 +37,8 @@ export default function roulette() {
             const activeDiscount = document.getElementById('slice' + prizeNum).dataset.discount;
             document.querySelector('.result-discount').innerHTML = activeDiscount;
             document.querySelector('.result-value').innerHTML = activeValue;
-            document.querySelector('.result-probability').innerHTML = weights[prizeNum - 1];
+            const resultProbability = document.querySelector('.result-probability');
+            if (resultProbability) resultProbability.innerHTML = weights[prizeNum - 1];
             const imageInModal = document.querySelector('.out-roulette__modal-photo img');
             const sourceInModal = document.querySelector('.out-roulette__modal-photo source');
             imageInModal.src = imageInModal.src.replace('sm', activeImage);
