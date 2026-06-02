@@ -487,9 +487,16 @@
     animation: rotate 12s infinite;
 }
 
+.a-fast-spin {
+    .a-rotation {
+        animation: spinFast 1.75s linear infinite;
+    }
+}
+
 .a-start-play {
     .a-rotation {
-        animation: startPlay 7s;
+        // без разгона: стартуем на скорости fast-spin и плавно затухаем к концу
+        animation: startPlay 7s cubic-bezier(0, 0, 0.5, 1);
         animation-fill-mode: forwards;
     }
 
@@ -498,11 +505,6 @@
         animation: fadeText .3s;
         animation-delay: 6.7s;
         animation-fill-mode: forwards;
-    }
-
-    .out-roulette__button:disabled {
-        background-color: $color-white;
-        color: $color-accent;
     }
 
     .slice:not(.is-active) {
@@ -594,6 +596,13 @@
         animation: lightRotate 20s linear infinite;
     }
 
+    // кнопка-результат (с таймером) показывается только когда приз уже открыт,
+    // до этого момента она остаётся визуально заблокированной
+    .out-roulette__button:disabled {
+        background-color: $color-white;
+        color: $color-accent;
+    }
+
 }
 
 @keyframes fadeOut {
@@ -658,6 +667,11 @@
     100% {
         transform: rotate(360deg);
     }
+}
+
+@keyframes spinFast {
+    from { transform: rotate(var(--angleStart)); }
+    to { transform: rotate(calc(var(--angleStart) + 360deg)); }
 }
 
 @keyframes startPlay {

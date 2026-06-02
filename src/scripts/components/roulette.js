@@ -1,3 +1,32 @@
+async function fetchRoulettePrize() {
+    // === DEV MOCK: убрать при подключении реального API ===
+    // TODO: подставить реальный эндпоинт:
+    //   const res = await fetch('/api/roulette/spin', { method: 'POST', headers: { 'Content-Type': 'application/json' } });
+    //   if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    //   return (await res.json()).prizeNum;
+    const weights = [40, 20, 15, 10, 6, 4, 3, 2];
+    const pool = weights.flatMap((w, i) => Array(w).fill(i + 1));
+    const prizeNum = pool[Math.floor(Math.random() * pool.length)];
+    console.log('Отправляю запрос на бэк');
+    await new Promise(r => setTimeout(r, 3000));
+    // DEV: ?fail в URL — имитируем ошибку ответа бэка для теста
+    if (new URLSearchParams(location.search).has('fail')) {
+        throw new Error('Имитация ошибки бэка (?fail)');
+    }
+    console.log('Получен ответ, номер приза:', prizeNum);
+    return prizeNum;
+}
+
+// определяем текущий угол поворота колеса 0..360
+function getCurrentAngle(el) {
+    const tr = window.getComputedStyle(el, null).getPropertyValue('transform');
+    if (!tr || tr === 'none') return 0;
+    const [a, b] = tr.split('(')[1].split(')')[0].split(',');
+    let angle = Math.round(Math.atan2(b, a) * (180 / Math.PI));
+    if (angle < 0) angle += 360;
+    return angle;
+}
+
 export default function roulette() {
     const rouletteContainer = document.querySelector('.out-roulette')
 
@@ -7,29 +36,30 @@ export default function roulette() {
         const closeButton = document.querySelector('.js-close-roulette-modal');
         let isPressPlay = false;
         let isShowModal = false;
-        playButton.addEventListener('click', (event) => {
+        playButton.addEventListener('click', async () => {
+            // блочим кнопку
+            playButton.setAttribute('disabled', 'disabled');
+            const root = document.documentElement;
+            // приводим колесо в быстрое вращение, пока ждём сервер (продолжаем вращение с текущего положения колеса в момент нажатия кнопки)
+            root.style.setProperty('--angleStart', getCurrentAngle(roulette) + 'deg');
+            rouletteContainer.classList.add('a-fast-spin');
+
+            // спрашиваем у сервера, какой приз выдать
+            let prizeNum;
+            try {
+                prizeNum = await fetchRoulettePrize();
+            } catch (err) {
+                console.error('Ошибка ответа бэка', err);
+                rouletteContainer.classList.remove('a-fast-spin');
+                playButton.removeAttribute('disabled');
+                alert('Не удалось получить приз. Попробуйте ещё раз.');
+                return;
+            }
+
             isPressPlay = true;
             setTimeout(() => {
                 isShowModal = true;
             }, 7500);
-
-            // настройка весов
-            const weights = [40, 20, 15, 10, 6, 4, 3, 2]; // в процентах
-            const weightedRandomArray = () => {
-                const weightedArray = [];
-                // [slice#1, slice#2, slice#3, slice#4, slice#5, slice#6,slice#7, slice#8]
-
-                for (let i = 0; i < weights.length; i++) {
-                    const count = weights[i];
-                    for (let j = 0; j < count; j++) {
-                        weightedArray.push(i + 1);
-                    }
-                }
-                const randomIndex = Math.floor(Math.random() * weightedArray.length);
-                console.log('Выпал приз №', weightedArray[randomIndex])
-                return weightedArray[randomIndex];
-            }
-            let prizeNum = weightedRandomArray();
 
             // заполняем данные модального окна
             const activeImage = document.getElementById('slice' + prizeNum).dataset.size;
@@ -37,17 +67,12 @@ export default function roulette() {
             const activeDiscount = document.getElementById('slice' + prizeNum).dataset.discount;
             document.querySelector('.result-discount').innerHTML = activeDiscount;
             document.querySelector('.result-value').innerHTML = activeValue;
-            const resultProbability = document.querySelector('.result-probability');
-            if (resultProbability) resultProbability.innerHTML = weights[prizeNum - 1];
             const imageInModal = document.querySelector('.out-roulette__modal-photo img');
             const sourceInModal = document.querySelector('.out-roulette__modal-photo source');
             imageInModal.src = imageInModal.src.replace('sm', activeImage);
             imageInModal.srcset = imageInModal.srcset.replace('sm', activeImage);
             sourceInModal.srcset = sourceInModal.srcset.replaceAll('sm', activeImage);
             document.querySelector('.out-roulette__modal-photo').classList.add('image' + prizeNum);
-
-            // блочим кнопку
-            playButton.setAttribute('disabled', 'disabled');
 
             // включаем таймер
             const date = new Date();
@@ -79,29 +104,16 @@ export default function roulette() {
                 }
             }, 1000);
 
-            // определение угла поворота колеса
-            let st = window.getComputedStyle(roulette, null);
-            let tr = st.getPropertyValue('transform');
-
-            let values = tr.split('(')[1].split(')')[0].split(',');
-            let a = values[0];
-            let b = values[1];
-
-            let angle = Math.round(Math.atan2(b, a) * (180 / Math.PI));
-            if (angle < 0) {
-                angle = 360 + angle;
-            }
-
-            // устанавливаем начальное и конечное положение поворота колеса
-            const root = document.documentElement;
-            root.style.setProperty('--angleStart', angle + 'deg');
+            // обновляем начальное положение по текущему углу быстрого вращения и задаём конечное
+            root.style.setProperty('--angleStart', getCurrentAngle(roulette) + 'deg');
             root.style.setProperty('--angleEnd', (360 * 3 - (prizeNum - 1) * 45) + 'deg');
 
-            // запускаем вращение
+            // переключаемся с быстрого вращения на анимацию перехода к призу
+            rouletteContainer.classList.remove('a-fast-spin');
             rouletteContainer.classList.add('a-start-play');
             document.getElementById('slice' + prizeNum).classList.add('is-active');
 
-            // включаем анимацию
+            // включаем анимацию lottie (если не будет использоваться, можно удалить)
             const animationContainer = document.getElementById('lottie-animation');
             if (animationContainer) {
                 const animation = lottie.loadAnimation({
@@ -115,6 +127,7 @@ export default function roulette() {
 
             // показываем модальное окно
             setTimeout(() => {
+                console.log('Показываю выпавший приз');
                 rouletteContainer.classList.add('a-show-modal');
             }, 8000);
         });
